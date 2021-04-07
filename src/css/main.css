@@ -33,31 +33,6 @@ body {
 
 }
 
-
-/* .carouselInner {
-  position: relative;
-  width: 60%;
-  overflow: hidden;
-}
-
-.carouselInner::after {
-  display: block;
-  clear: both;
-  content: "";
-}
-.carouselItem {
-  position: relative;
-  display: none;
-  float: left;
-  width: 70%;
-  margin-right: -100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  transition: -webkit-transform 0.6s ease-in-out;
-  transition: transform 0.6s ease-in-out;
-  transition: transform 0.6s ease-in-out, -webkit-transform 0.6s ease-in-out;
-} */
-
 .navbarMenu {
     background-color: #36622b;
     /* width: 15%; */
@@ -131,7 +106,6 @@ textarea {
 
 footer {
     background: #36622b;
-    position: absolute;
     bottom: 0;
     height: 100px;
 }
@@ -148,4 +122,13 @@ footer {
     margin-top: 20px;
     padding-left: 50px;
     padding-right: 50px;
+}
+
+.iniciativa-row{
+    margin: 3rem;
+}
+
+.border{
+    color: black;
+
 }
