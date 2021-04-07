@@ -2,108 +2,112 @@
 <html>
 
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <title>ReciclaG - Inscribe tu punto</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <meta charset="utf-8" name='viewport' content='width=device-width, initial-scale=1'>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&family=New+Tegomin&family=Roboto&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="shortcut icon" href="../../img/logo.png">
     <link rel='stylesheet' type='text/css' media='screen' href='../../css/main.css'>
+    <title>ReciclaG - Inscribe tu punto</title>
 </head>
 
 <body>
-<div class="container-fluid">
 
-    <!--
-    Navbar Section
-    -->
-    <div class="fixed-top-menu">
-        <div class="collapse" id="navbarToggleExternalContent">
-            <div class="navbarMenu">
 
-                <li class="optionsMenu">INICIO</li>
-                <li class="optionsMenu">INICIATIVAS</li>
-                <li class="optionsMenu">CONTACTO</li>
+<!--
+Navbar Section
+-->
+<div class="fixed-top-menu">
+    <div class="collapse" id="navbarToggleExternalContent">
+        <div class="navbarMenu">
 
-            </div>
+            <li class="optionsMenu">INICIO</li>
+            <li class="optionsMenu">INICIATIVAS</li>
+            <li class="optionsMenu">CONTACTO</li>
+
         </div>
-
-        <nav class="navbarTop navbar-dark navbarMenu">
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarToggleExternalContent"
-                    aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <img class="logo" src="../../img/logo.png"/>
-        </nav>
     </div>
 
-    <!--
-    Ends - Navbar Section
-    -->
+    <nav class="navbarTop navbar-dark navbarMenu">
 
-    <!--
-    Form Section
-    -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarToggleExternalContent"
+                aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <img class="logo" src="../../img/logo.png"/>
+    </nav>
+</div>
 
-    <div class="container contacto">
-        <form>
-            <div class="row">
-                <h3>¡Inscribe tu punto de reciclaje!</h3>
-            </div>
-            <div class="mb-3">
-                <label for="organizacion" class="form-label">Organización</label>
-                <input type="text" class="form-control" id="organizacion">
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Correo electrónico</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Comuna</label>
-                <input type="text" class="form-control" id="exampleInputPassword1">
-            </div>
-            <div class="mb-3">
-                <label for="direccion" class="form-label">Dirección</label>
-                <input type="text" class="form-control" id="direccion">
-            </div>
-            <div class="mb-3">
-                <label for="horario" class="form-label">Horario</label>
-                <input type="tex" class="form-control" id="horario">
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                <label class="form-check-label" for="inlineCheckbox1">Lata</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                <label class="form-check-label" for="inlineCheckbox2">Papel</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-                <label class="form-check-label" for="inlineCheckbox3">Cartón</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option4">
-                <label class="form-check-label" for="inlineCheckbox4">Plásticos</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option5">
-                <label class="form-check-label" for="inlineCheckbox5">Vidrio</label>
-            </div>
-            <div class="align-right">
-                <button type="button" class="btn btn-light">Inscribir mi punto</button>
-            </div>
-        </form>
+<!--
+Ends - Navbar Section
+-->
 
-    </div>
+<!--
+Form Section
+-->
 
-    <!--
-    Form Section
-    -->
+<div class="container contacto">
+    <form>
+        <div class="row">
+            <h3>¡Inscribe tu punto de reciclaje!</h3>
+        </div>
+        <div class="mb-3">
+            <label for="organizacion" class="form-label">Organización</label>
+            <input type="text" class="form-control" id="organizacion">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Correo electrónico</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Comuna</label>
+            <input type="text" class="form-control" id="exampleInputPassword1">
+        </div>
+        <div class="mb-3">
+            <label for="direccion" class="form-label">Dirección</label>
+            <input type="text" class="form-control" id="direccion">
+        </div>
+        <div class="mb-3">
+            <label for="horario" class="form-label">Horario</label>
+            <input type="tex" class="form-control" id="horario">
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+            <label class="form-check-label" for="inlineCheckbox1">Lata</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+            <label class="form-check-label" for="inlineCheckbox2">Papel</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+            <label class="form-check-label" for="inlineCheckbox3">Cartón</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option4">
+            <label class="form-check-label" for="inlineCheckbox4">Plásticos</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option5">
+            <label class="form-check-label" for="inlineCheckbox5">Vidrio</label>
+        </div>
+        <div class="align-right">
+            <button type="button" class="btn btn-light">Inscribir mi punto</button>
+        </div>
+    </form>
 
 </div>
+
+<!--
+Form Section
+-->
 
 
 <!--
@@ -112,12 +116,9 @@ Footer Section
 
 <footer class="footer">
     <div class="row">
-        <p>
-        <center>PGY3121-009V</center>
-        </p>
+        <span class="footer-span">PGY3121-009V</span>
     </div>
 </footer>
-
 
 <!--
 Footer Section
