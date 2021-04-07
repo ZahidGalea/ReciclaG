@@ -139,7 +139,6 @@ body {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     transition: -webkit-transform 0.6s ease-in-out;
-    transition: transform 0.6s ease-in-out;
     transition: transform 0.6s ease-in-out, -webkit-transform 0.6s ease-in-out;
 }
 
@@ -308,4 +307,30 @@ body {
     padding-bottom: 20px;
     color: #fff;
     text-align: center;
+}
+
+
+.contacto {
+    background-color: #729d39;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+textarea {
+    resize: none;
+}
+
+.align-right {
+    text-align: right;
+    border: 0;
+}
+
+
+footer {
+    margin-top: 20px;
+    background-color: #c6e377;
+    color: #36622b
+
 }
