@@ -54,9 +54,12 @@ Form Section
 -->
 
 <div class="container contacto">
-    <form>
-        <div class="row">
-            <h3>¡Inscribe tu punto de reciclaje!</h3>
+    <form class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-md-auto">
+                <h3 class="align-content-center">¡Inscribe tu punto de reciclaje!</h3>
+            </div>
+
         </div>
         <div class="mb-3">
             <label for="organizacion" class="form-label">Organización</label>
@@ -78,29 +81,33 @@ Form Section
             <label for="horario" class="form-label">Horario</label>
             <input type="tex" class="form-control" id="horario">
         </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-            <label class="form-check-label" for="inlineCheckbox1">Lata</label>
+        <div class="container">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                <label class="form-check-label" for="inlineCheckbox1">Lata</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                <label class="form-check-label" for="inlineCheckbox2">Papel</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+                <label class="form-check-label" for="inlineCheckbox3">Cartón</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option4">
+                <label class="form-check-label" for="inlineCheckbox4">Plásticos</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option5">
+                <label class="form-check-label" for="inlineCheckbox5">Vidrio</label>
+            </div>
+            <div class="row justify-content-md-center inscribir-action-div">
+                <button type="button" class="btn btn-light">Inscribir mi punto</button>
+            </div>
+
         </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-            <label class="form-check-label" for="inlineCheckbox2">Papel</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-            <label class="form-check-label" for="inlineCheckbox3">Cartón</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option4">
-            <label class="form-check-label" for="inlineCheckbox4">Plásticos</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option5">
-            <label class="form-check-label" for="inlineCheckbox5">Vidrio</label>
-        </div>
-        <div class="align-right">
-            <button type="button" class="btn btn-light">Inscribir mi punto</button>
-        </div>
+
     </form>
 
 </div>
@@ -114,8 +121,8 @@ Form Section
 Footer Section
 -->
 
-<footer class="footer">
-    <div class="row">
+<footer class="footer container-fluid">
+    <div class="textContainer">
         <span class="footer-span">PGY3121-009V</span>
     </div>
 </footer>

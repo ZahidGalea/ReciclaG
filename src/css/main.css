@@ -316,6 +316,7 @@ body {
     margin-bottom: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
+    color: white;
 }
 
 textarea {
@@ -327,14 +328,17 @@ textarea {
     border: 0;
 }
 
-
 footer {
-    margin-top: 20px;
-    background-color: #c6e377;
-    color: #36622b
-
+    background: #36622b;
+    position: absolute;
+    bottom: 0;
+    height: 100px;
 }
 
 .footer-span {
-    text-align: center;
+    color: ghostwhite;
+}
+
+.inscribir-action-div {
+    padding-top: 20px
 }
