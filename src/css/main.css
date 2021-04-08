@@ -89,7 +89,8 @@ body {
     height: 20rem;
 }
 
-.contacto {
+/* Contact form */
+.contact {
     background-color: #729d39;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -98,13 +99,26 @@ body {
     color: white;
 }
 
-textarea {
-    resize: none;
-}
-
+/* Send button */
 .align-right {
     text-align: right;
     border: 0;
+}
+.btn:link,
+.btn:visited{
+  text-decoration: none;
+  text-transform:uppercase;
+  position:relative;
+  top:0;
+  left:0;
+  padding:20px 40px;
+  border-radius:100px;
+  display:inline-block;
+  transition: all .5s;
+}
+.btn-green{
+  background:#36622b;
+  color:#fbfad3;
 }
 
 footer {
