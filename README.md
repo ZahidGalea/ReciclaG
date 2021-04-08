@@ -1,2 +1,6 @@
-# webdev-solemne1
-Solemne 1 - Front Development
+# Página de reciclaje y sus diferentes puntos
+
+
+----- 
+
+Solemne 1 - Front-End Development.

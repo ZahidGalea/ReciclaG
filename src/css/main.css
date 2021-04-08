@@ -1,0 +1,147 @@
+body {
+    background-color: #c6e377 !important;
+
+}
+
+.fixed-top-menu {
+    position: relative;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.hrStyle {
+    border-top: 1px solid #36622b;
+    width: 80%;
+}
+
+.logo {
+    margin: 1% 2% 0.5% 0;
+    width: 5%;
+    height: 5%;
+
+}
+
+.textContainer {
+
+    position: relative;
+    margin: 5% 40% 5% 30%;
+    text-align: center;
+    width: 40%;
+    font-family: 'Lato', sans-serif;
+
+}
+
+.navbarMenu {
+    background-color: #36622b;
+    /* width: 15%; */
+}
+
+.buttonStyle {
+    background-color: #36622b;
+}
+
+.optionsMenu {
+    color: #fbfad3;
+    font-family: 'Lato', sans-serif;
+    font-size: 1.2rem;
+    padding: 6px 10px 0 15px;
+
+}
+
+.navbarTop {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    width: 100%;
+}
+
+/* Carousel base class */
+.carousel {
+    margin-bottom: 0rem;
+}
+
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+    z-index: 10;
+    bottom: 3rem;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel-item {
+    height: 20rem;
+    background-color: #777;
+}
+
+.carousel-item > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 20rem;
+}
+
+.contacto {
+    background-color: #729d39;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: white;
+}
+
+textarea {
+    resize: none;
+}
+
+.align-right {
+    text-align: right;
+    border: 0;
+}
+
+footer {
+    background: #36622b;
+    bottom: 0;
+    height: 100px;
+}
+
+.footer-span {
+    color: ghostwhite;
+}
+
+.inscribir-action-div {
+    padding-top: 20px
+}
+
+.introduction {
+    margin-top: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.iniciativa-row {
+    margin: 3rem;
+}
+
+.border {
+    color: black;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: powderblue;
+    text-decoration: none;
+    cursor: pointer;
+}
