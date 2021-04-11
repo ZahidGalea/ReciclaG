@@ -47,7 +47,7 @@ Navbar Section
                 aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <img class="logo" src="src/img/logo.png"/>
+        <img class="logo" alt="logo" src="src/img/logo.png"/>
     </nav>
 </div>
 
@@ -59,60 +59,68 @@ Ends - Navbar Section
 <!--
 Complete Body Section
 -->
+<div id="wrap">
+    <div id="main" class="container clear-top">
+        <div class="container introduction">
+            <div class="row justify-content-center">
+                <h1>¡Reciclemos Juntos!</h1>
+            </div>
+            <br>
+            <div class="row justify-content-center">
+                <p>
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et
+                    dolore
+                    magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                    commodo
+                    consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                    pariatur.
+                    Excepteur
+                    sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+                    laborum."
+                </p>
+            </div>
 
-<div class="container introduction">
-    <div class="row justify-content-center">
-        <h1>¡Reciclemos Juntos!</h1>
+
+        </div>
+        <hr class="hrStyle">
+        <div id="demo" class="carousel slide wrapper container-fluid" data-ride="carousel">
+
+            <!-- Indicators -->
+            <ul class="carousel-indicators">
+                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+                <li data-target="#demo" data-slide-to="2"></li>
+            </ul>
+
+            <!-- The slideshow -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="src/img/carrusel1.jpg" alt="Los Angeles">
+                </div>
+                <div class="carousel-item">
+                    <img src="src/img/carrusel2.jpeg" alt="Chicago">
+                </div>
+                <div class="carousel-item">
+                    <img src="src/img/carrusel3.jpg" alt="New York">
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
+
+        </div>
+        <hr class="hrStyle">
     </div>
-    <br>
-    <div class="row justify-content-center">
-        <p>
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore
-            magna
-            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur
-            sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        </p>
-    </div>
-
-
 </div>
-<hr class="hrStyle">
-<div id="demo" class="carousel slide wrapper container-fluid" data-ride="carousel">
 
-    <!-- Indicators -->
-    <ul class="carousel-indicators">
-        <li data-target="#demo" data-slide-to="0" class="active"></li>
-        <li data-target="#demo" data-slide-to="1"></li>
-        <li data-target="#demo" data-slide-to="2"></li>
-    </ul>
-
-    <!-- The slideshow -->
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="src/img/carrusel1.jpg" alt="Los Angeles">
-        </div>
-        <div class="carousel-item">
-            <img src="src/img/carrusel2.jpeg" alt="Chicago">
-        </div>
-        <div class="carousel-item">
-            <img src="src/img/carrusel3.jpg" alt="New York">
-        </div>
-    </div>
-
-    <!-- Left and right controls -->
-    <a class="carousel-control-prev" href="#demo" data-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-    </a>
-    <a class="carousel-control-next" href="#demo" data-slide="next">
-        <span class="carousel-control-next-icon"></span>
-    </a>
-
-</div>
-<hr class="hrStyle">
 
 <!--
 Ends Complete Body Section
@@ -122,14 +130,60 @@ Ends Complete Body Section
 Footer Section
 -->
 
-<footer class="footer container-fluid justify-content-center align-content-center">
-    <div class="row justify-content-center align-content-center">
-        <span class="footer-span">PGY3121-009V</span>
+<footer class="bg-primary text-white text-center text-lg-start footer">
+    <!-- Grid container -->
+    <div class="container p-4">
+        <!--Grid row-->
+        <div class="row">
+            <!--Grid column-->
+
+            <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                <img class="logo" alt="logo" src="src/img/logo.png"/>
+            </div>
+
+            <div class="col-lg-4 col-md-4 mb-4 mb-md-0">
+                <h5 class="text-uppercase">ReciclaG</h5>
+
+                <p>
+                    Recicla pos perro!
+                </p>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-lg-6 col-md-4 mb-4 mb-md-0">
+
+                <ul class="list-unstyled mb-0">
+                    <li>
+                        <a href="index.html">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="src/html/pages/iniciativa.html">Iniciativas</a>
+                    </li>
+                    <li>
+                        <a href="src/html/pages/contacto.html">Contacto</a>
+                    </li>
+                    <li>
+                        <a href="src/html/pages/contacto.html">Quienes somos?</a>
+                    </li>
+                </ul>
+            </div>
+            <!--Grid column-->
+        </div>
+        <!--Grid row-->
     </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3 copyright">
+        © 2021 Copyright:
+        <a class="text-white" href="https://mdbootstrap.com/">Gracias stackoverflow</a>
+    </div>
+    <!-- Copyright -->
 </footer>
 
 <!--
-Footer Section
+Ends Footer Section
 -->
 
 
