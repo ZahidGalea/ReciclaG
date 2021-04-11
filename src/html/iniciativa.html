@@ -1,6 +1,5 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-
 <head>
     <meta charset="utf-8" name='viewport' content='width=device-width, initial-scale=1'>
 
@@ -12,14 +11,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <link rel="shortcut icon" href="../../img/logo.png">
-    <link rel='stylesheet' type='text/css' media='screen' href='../../css/main.css'>
-    <title>ReciclaG - Inscribe tu punto</title>
+    <link rel="shortcut icon" href="../img/logo.png">
+    <title>ReciclaG</title>
+    <link rel="stylesheet" href="../css/main.css">
+
+
 </head>
-
 <body>
-
-
 <!--
 Navbar Section
 -->
@@ -28,7 +26,7 @@ Navbar Section
         <div class="navbarMenu">
 
             <li class="optionsMenu">
-                <a href="../../../index.html">Inicio</a>
+                <a href="../../index.html">Inicio</a>
             </li>
             <li class="optionsMenu">
                 <a href="iniciativa.html">Iniciativas</a>
@@ -47,7 +45,7 @@ Navbar Section
                 aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <img class="logo" alt="logo" src="../../img/logo.png"/>
+        <img class="logo" src="../img/logo.png" alt="logo"/>
     </nav>
 </div>
 
@@ -55,77 +53,77 @@ Navbar Section
 Ends - Navbar Section
 -->
 
-<!--
-Form Section
--->
+
 <div id="wrap">
     <div id="main" class="container clear-top">
-        <div class="container contacto">
-            <form class="container">
-                <div class="row justify-content-md-center">
-                    <div class="col-md-auto">
-                        <h3 class="align-content-center">¡Inscribe tu punto de reciclaje!</h3>
-                    </div>
 
-                </div>
-                <div class="mb-3">
-                    <label for="organizacion" class="form-label">Organización</label>
-                    <input type="text" class="form-control" id="organizacion">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Correo electrónico</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Comuna</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1">
-                </div>
-                <div class="mb-3">
-                    <label for="direccion" class="form-label">Dirección</label>
-                    <input type="text" class="form-control" id="direccion">
-                </div>
-                <div class="mb-3">
-                    <label for="horario" class="form-label">Horario</label>
-                    <input type="text" class="form-control" id="horario">
-                </div>
-                <div class="container">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                        <label class="form-check-label" for="inlineCheckbox1">Lata</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                        <label class="form-check-label" for="inlineCheckbox2">Papel</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-                        <label class="form-check-label" for="inlineCheckbox3">Cartón</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option4">
-                        <label class="form-check-label" for="inlineCheckbox4">Plásticos</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option5">
-                        <label class="form-check-label" for="inlineCheckbox5">Vidrio</label>
-                    </div>
-                    <div class="row justify-content-md-end inscribir-action-div">
-                        <button type="button" class="btn btn-light">Inscribir mi punto</button>
-                    </div>
-
-                </div>
-
-            </form>
-
+        <div class="container introduction">
+            <div class="row align-items-center justify-content-center">
+                <h1>Iniciativas</h1>
+            </div>
         </div>
+        <div class="card mb-3">
+            <div class="row no-gutters bg-light">
+                <div class="col-md-7">
+                    <img src="../img/iniciativa_providencia.jpeg" class="card-img" alt="...">
+                </div>
+                <div class="col-md-5">
+                    <div class="card-body">
+                        <h5 class="card-title">Providencia</h5>
+                        <p class="card-text">Organización: Municipalidad de providencia</p>
+                        <p class="card-text">Correo de contacto:ambientalprov@gmail.cam</p>
+                        <p class="card-text">Comuna: Providencia</p>
+                        <p class="card-text">Dirección: Pocuro 3083</p>
+                        <p class="card-text">Horario: Punto disponible en todo horario</p>
+                        <p class="card-text">Qué recicla: Lata, plástico, papel, vidrio, tetra pack</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-3">
+            <div class="row no-gutters bg-light">
+                <div class="col-md-5">
+                    <div class="card-body">
+                        <h5 class="card-title">Santiago</h5>
+                        <p class="card-text">Organización: Intendencia metropolitana</p>
+                        <p class="card-text">Correo de contacto: ambientalstgo@gmail.cam</p>
+                        <p class="card-text">Comuna: Santiago</p>
+                        <p class="card-text">Dirección: Parque los reyes</p>
+                        <p class="card-text">Horario: Punto disponible en todo horario</p>
+                        <p class="card-text">Qué recicla: Latas, hojalata, plásticos PET</p>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <img src="../img/iniciativa_santiago.jpeg" class="card-img" alt="...">
+                </div>
+
+            </div>
+        </div>
+
+        <div class="card mb-3 ">
+            <div class="row no-gutters bg-light">
+                <div class="col-md-7">
+                    <img src="../img/inviativa_c_tango.jpeg" class="card-img" alt="...">
+                </div>
+                <div class="col-md-5">
+                    <div class="card-body">
+                        <h5 class="card-title">Calera de Tango</h5>
+                        <p class="card-text">Organización: Municipalidad de Calera de Tango</p>
+                        <p class="card-text">Correo de contacto: ambientalctango@gmail.cam</p>
+                        <p class="card-text">Comuna: Calera de Tango</p>
+                        <p class="card-text">Dirección:< Ignacio Carrera Pinto S/N/p>
+                        <p class="card-text">Horario: Lunes a Sábado de 10:00 a 19:00 horas</p>
+                        <p class="card-text">Qué recicla: Aceite comestible, latas, tetra pack, plásticos, papel,
+                            cartón</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     </div>
 </div>
-
-
-<!--
-Form Section
--->
-
 
 <!--
 Footer Section
@@ -139,7 +137,7 @@ Footer Section
             <!--Grid column-->
 
             <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
-                <img class="logo" alt="logo" src="../../img/logo.png"/>
+                <img class="logo" src="../img/logo.png" alt="logo"/>
             </div>
 
             <div class="col-lg-4 col-md-4 mb-4 mb-md-0">
@@ -156,7 +154,7 @@ Footer Section
 
                 <ul class="list-unstyled mb-0">
                     <li>
-                        <a href="../../../index.html">Inicio</a>
+                        <a href="../../index.html">Inicio</a>
                     </li>
                     <li>
                         <a href="iniciativa.html">Iniciativas</a>
@@ -204,6 +202,7 @@ Scripts section
 <!--
 Ends Scripts section
 -->
+
 
 </body>
 </html>
