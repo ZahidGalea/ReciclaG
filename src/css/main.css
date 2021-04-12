@@ -18,16 +18,92 @@ footer {
     background-color: #36622b;
 }
 
-.copyright{
+.labelColor {
+    color: #36622b!important;
+}
+
+h1 {
+    color: #36622b;
+}
+
+.containerTitlePanel {
+    margin-left: 20%;
+    margin-top: 5%;
+    padding-bottom: 2%;
 
 }
+
+
+.helpNavbar {
+    padding-left: 5px;
+    padding-right: 5px;
+    color: #ddffbc;
+}
+
+.btnLogin {
+    background-color: #729d39;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+
+
+    border-color: #007bff;
+}
+
+.login {
+    background-color: #36622b !important;
+    height: 50%;
+    width: 40%;
+    margin-left: 30%;
+    position: absolute;
+
+}
+
+.formLogin {
+    padding: 15%;
+    position: relative;
+
+}
+
+.containerContentPanel {
+    margin-left: 20%;
+    position: relative;
+}
+
+.imgCard {
+    height: 100%;
+    width: 100%;
+}
+
+
+.containerBtnCrear {
+    padding-top: 2%;
+    margin-left: 80%;
+}
+
+.btnTrash {
+
+    margin-left: 65%;
+
+}
+
+.copyright {
+
+}
+
 .bg-primary {
-    background-color: #36622b!important;
+    background-color: #36622b !important;
 }
 
 
 body {
-    background-color: #c6e377 !important;
+    background-color: #ddffbc !important;
 }
 
 .fixed-top-menu {
@@ -54,6 +130,11 @@ body {
     text-align: center;
     width: 40%;
     font-family: 'Lato', sans-serif;
+
+}
+
+.passLink {
+    color: #ddffbc;
 
 }
 
