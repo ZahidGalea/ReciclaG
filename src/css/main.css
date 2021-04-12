@@ -101,7 +101,7 @@ body {
 
 /* Declare heights because of positioning of img element */
 .carousel-item {
-    height: 20rem;
+    height: 30rem;
     background-color: #777;
 }
 
@@ -110,7 +110,7 @@ body {
     top: 0;
     left: 0;
     min-width: 100%;
-    height: 20rem;
+    height: 30rem;
 }
 
 /* Contact form */
