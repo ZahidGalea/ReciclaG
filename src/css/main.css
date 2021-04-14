@@ -1,6 +1,138 @@
-body {
-    background-color: #c6e377 !important;
+#wrap {
+    min-height: 80%;
+}
 
+#main {
+    overflow: auto;
+    padding-bottom: 150px; /* this needs to be bigger than footer height*/
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Lato', sans-serif!important;
+}
+
+footer {
+    position: relative;
+    clear: both;
+    padding-top: 20px;
+    background-color: #36622b;
+}
+h1 {
+    padding: 15px;
+    color: #36622b;
+}
+
+.labelColor {
+    color: #36622b!important;
+}
+
+
+
+.containerTitlePanel {
+    margin-left: 20%;
+    margin-top: 5%;
+    padding-bottom: 2%;
+
+}
+
+
+.helpNavbar {
+    padding-left: 5px;
+    padding-right: 5px;
+    color: #ddffbc;
+}
+
+.btnGeneral {
+    background-color: #729d39;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 25px 2px;
+    cursor: pointer;
+    border-color: #007bff;
+    position: relative;
+}
+
+.login {
+    background-color: #36622b !important;
+    height: 50%;
+    width: 40%;
+    margin-left: 30%;
+    position: absolute;
+
+}
+.loginTitle{
+  margin:5% 0% 5% 0%;
+
+}
+
+.logoLogin{
+  margin: auto;
+}
+
+.formLogin {
+    padding: 15%;
+    position: relative;
+
+}
+
+.containerContentPanel {
+    margin-left: 20%;
+    padding-bottom: 10%;
+    position: relative;
+}
+
+.imgCard {
+    height: 100%;
+    width: 100%;
+}
+
+
+.containerBtnCrear {
+    padding-top: 2%;
+    padding-left: 80%;
+    /* position: relative; */
+
+}
+
+/* .btnTrash {
+    position: relative;
+    margin-left: 60%;
+
+} */
+.btnCard{
+  background-color: #729d39;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 25px 2px;
+  margin-right: 30%;
+  cursor: pointer;
+  border-color: #007bff;
+  position: relative;
+
+}
+
+.copyright {
+
+}
+
+.bg-primary {
+    background-color: #36622b !important;
+}
+
+
+body {
+    background-color: #ddffbc !important;
 }
 
 .fixed-top-menu {
@@ -16,11 +148,13 @@ body {
     width: 50%;
 }
 
-.logo {
-    margin: 1% 2% 0.5% 0;
-    width: 10%;
-    height: 7%;
+/*
+TO-DO: logo con 50% fastidia la navbar
+*/
 
+.logo {
+    width: 50px;
+    height: 50px;
 }
 
 .textContainer {
@@ -33,10 +167,21 @@ body {
 
 }
 
+.textCard{
+  padding: 0px;
+  margin-bottom: 0px;
+}
+
+.passLink {
+    color: #ddffbc;
+
+}
+
 .navbarMenu {
     background-color: #36622b;
     /* width: 15%; */
 }
+
 
 .buttonStyle {
     background-color: #36622b;
@@ -77,7 +222,7 @@ body {
 
 /* Declare heights because of positioning of img element */
 .carousel-item {
-    height: 20rem;
+    height: 30rem;
     background-color: #777;
 }
 
@@ -86,7 +231,7 @@ body {
     top: 0;
     left: 0;
     min-width: 100%;
-    height: 20rem;
+    height: 30rem;
 }
 
 /* Contact form */
@@ -104,37 +249,25 @@ body {
     text-align: right;
     border: 0;
 }
+
 .btn:link,
-.btn:visited{
-  text-decoration: none;
-  text-transform:uppercase;
-  position:relative;
-  top:0;
-  left:0;
-  padding:20px 40px;
-  border-radius:100px;
-  display:inline-block;
-  transition: all .5s;
-}
-.btn-green{
-  background:#36622b;
-  color:#fbfad3;
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
-footer {
-    background: #36622b;
-    position: fixed;
+.btn:visited {
+    text-decoration: none;
+    text-transform: uppercase;
+    position: relative;
+    top: 0;
     left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 40px;
-    text-align: center;
+    padding: 20px 40px;
+    border-radius: 100px;
+    display: inline-block;
+    transition: all .5s;
 }
 
-.footer-span {
-    color: ghostwhite;
+.btn-green {
+    background: #36622b;
+    color: #fbfad3;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .inscribir-action-div {
@@ -156,7 +289,7 @@ footer {
 }
 
 a {
-    color: white;
+    color:white;
     text-decoration: none;
 }
 
@@ -165,3 +298,29 @@ a:hover {
     text-decoration: none;
     cursor: pointer;
 }
+
+/* upload button */
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    padding: 30px 0px;
+  }
+
+  .btnupload {
+    border: 1px solid gray;
+    color: black;
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 15px;
+    font-size: 15px;
+
+  }
+
+  .upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }
