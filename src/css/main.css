@@ -66,6 +66,14 @@ h1 {
     position: absolute;
 
 }
+.loginTitle{
+  margin:5% 0% 5% 0%;
+
+}
+
+.logoLogin{
+  margin: auto;
+}
 
 .formLogin {
     padding: 15%;
@@ -107,7 +115,7 @@ h1 {
   display: inline-block;
   font-size: 16px;
   margin: 25px 2px;
-  margin-right: 30%; 
+  margin-right: 30%;
   cursor: pointer;
   border-color: #007bff;
   position: relative;
