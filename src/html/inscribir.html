@@ -68,21 +68,20 @@ Form Section
                     <div class="col">
                         <h1>¡Inscribe tu punto de reciclaje!</h1>
                     </div>
-
                 </div>
                 <div class="mb-3">
                     <label for="comuna" class="form-label">Comuna</label>
                     <input type="text" class="form-control" id="comuna">
                 </div>
                 <div class="alert alert-danger" role="alert" id="msgErrorComuna">
-                    <label class="form-label" id="msgErrorComuna"></label>
+                    <label class="form-label" id="txtErrorComuna"></label>
                 </div>
                 <div class="mb-3">
                     <label for="direccion" class="form-label">Dirección</label>
                     <input type="text" class="form-control" id="direccion">
                 </div> 
                 <div class="alert alert-danger" role="alert" id="msgErrorDireccion">
-                    <label class="form-label" id="msgErrorDireccion"></label>                  
+                    <label class="form-label" id="txtErrorDireccion"></label>                  
                 </div>
 
 
@@ -103,7 +102,7 @@ Form Section
                         </div>                 
                     </div>
  
-                    <div id="horarios">
+                    <div class="Box" style="display:none">
                         <div class="row">
                             <div class="col-sm">
                                 <div class="form-check form-check-inline">
@@ -389,10 +388,20 @@ Ends Scripts section
 <!---->
     <script type="text/javascript">
         $(document).ready(function() {
-            //apaga etiquetas alert
-            $("#horarios").hide();
+            //show div "Box"
+            $('input[type="radio"]').click(function () {
+                if ($(this).attr("value") != "2") {
+                    $(".Box").hide('slow');
+                }
+                if ($(this).attr("value") == "2") {
+                    $(".Box").show('slow');
 
-        
+                }
+            });
+            $('input[type="radio"]').trigger('click');  // trigger the event
+        //alerts
+
+
         });
 
 
