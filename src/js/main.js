@@ -1,6 +1,4 @@
 
-
-
 $(document).ready(function() {
-    // Nothing Here
+    console.log("Hello World -- Main executed")
 });

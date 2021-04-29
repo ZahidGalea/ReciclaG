@@ -74,14 +74,14 @@ Form Section
                     <input type="text" class="form-control" id="comuna">
                 </div>
                 <div class="alert alert-danger" role="alert" id="msgErrorComuna">
-                    <label class="form-label" id="msgErrorComuna"></label>
+                    <label class="form-label">Completa la comuna</label>
                 </div>
                 <div class="mb-3">
                     <label for="direccion" class="form-label">Dirección</label>
                     <input type="text" class="form-control" id="direccion">
-                </div> 
+                </div>
                 <div class="alert alert-danger" role="alert" id="msgErrorDireccion">
-                    <label class="form-label" id="msgErrorDireccion"></label>                  
+                    <label class="form-label">Completa la dirección</label>
                 </div>
 
 
@@ -90,223 +90,227 @@ Form Section
                     <div class="row">
                         <div class="col-sm">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="opcionHorario" id="inlineRadio1" value="1">
-                                <label class="form-check-label" for="inlineRadio1">Habilitado siempre</label>                 
+                                <input class="form-check-input" type="radio" name="opcionHorario" id="inlineRadio1"
+                                       value="1">
+                                <label class="form-check-label" for="inlineRadio1">Habilitado siempre</label>
                             </div>
                         </div>
-                        <div class="col-sm pb-3">                           
+                        <div class="col-sm pb-3">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="opcionHorario" id="inlineRadio2" value="2">
-                                <label class="form-check-label" for="inlineRadio2">Habilitado en horarios definidos</label>
-                            </div> 
-                        </div>                 
+                                <input class="form-check-input" type="radio" name="opcionHorario" id="inlineRadio2"
+                                       value="2">
+                                <label class="form-check-label" for="inlineRadio2">Habilitado en horarios
+                                    definidos</label>
+                            </div>
+                        </div>
                     </div>
- 
+
                     <div class="Box" style="display:none">
                         <div class="row">
-                            <div class="col-sm">
+                            <div class="col-12 col-sm-3">
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input " type="checkbox" id="cbxLunes" value="lunes">
-                                    <label class="form-check-label" for="cbxLunes">Lunes</label>                     
+                                    <label class="form-check-label" for="cbxLunes">Lunes</label>
                                 </div>
                             </div>
-                            <div class="col-sm">                           
+                            <div class="col-12 col-sm-5">
                                 <div class="form-check form-check-inline">
                                     <label for="aperturaLunes">Horario de apertura:</label>
-                                    <input type="time" id="aperturaLunes" name="appt"> 
+                                    <input type="time" id="aperturaLunes" name="appt">
                                 </div>
                             </div>
-                            <div class="col-sm">                            
+                            <div class="col-12 col-sm-4">
                                 <div class="form-check form-check-inline">
                                     <label for="cierreLunes">Horario de cierre:</label>
-                                    <input type="time" id="cierreLunes" name="appt"> 
+                                    <input type="time" id="cierreLunes" name="appt">
                                 </div>
-                            </div>                   
+                            </div>
                         </div>
 
 
-                        <div class="row" id="horarioMartes">
-                            <div class="col-sm">
+                        <div class="row">
+                            <div class="col-12 col-sm-3">
                                 <div class="form-check form-check-inline">
-                                <input class="form-check-input " type="checkbox" id="cbxMartes" value="martes">
-                                <label class="form-check-label" for="cbxMartes">Martes</label>                     
+                                    <input class="form-check-input " type="checkbox" id="cbxMartes" value="martes">
+                                    <label class="form-check-label" for="cbxMartes">Martes</label>
                                 </div>
                             </div>
-                            <div class="col-sm">                           
+                            <div class="col-12 col-sm-5">
                                 <div class="form-check form-check-inline">
                                     <label for="aperturaMartes">Horario de apertura:</label>
-                                    <input type="time" id="aperturaMartes" name="appt"> 
+                                    <input type="time" id="aperturaMartes" name="appt">
                                 </div>
                             </div>
-                            <div class="col-sm">                            
+                            <div class="col-12 col-sm-4">
                                 <div class="form-check form-check-inline">
                                     <label for="cierreMartes">Horario de cierre:</label>
-                                    <input type="time" id="cierreMartes" name="appt"> 
+                                    <input type="time" id="cierreMartes" name="appt">
                                 </div>
-                            </div>                   
+                            </div>
                         </div>
 
 
                         <div class="row">
-                            <div class="col-sm">
+                            <div class="col-12 col-sm-3">
                                 <div class="form-check form-check-inline">
-                                <input class="form-check-input " type="checkbox" id="cbxMiercoles" value="miercoles">
-                                <label class="form-check-label" for="cbxMiercoles">Miércoles</label>                     
+                                    <input class="form-check-input " type="checkbox" id="cbxMiercoles"
+                                           value="miercoles">
+                                    <label class="form-check-label" for="cbxMiercoles">Miércoles</label>
                                 </div>
                             </div>
-                            <div class="col-sm">                           
+                            <div class="col-12 col-sm-5">
                                 <div class="form-check form-check-inline">
                                     <label for="aperturaMiercoles">Horario de apertura:</label>
-                                    <input type="time" id="aperturaMiercoles" name="appt"> 
+                                    <input type="time" id="aperturaMiercoles" name="appt">
                                 </div>
                             </div>
-                            <div class="col-sm">                            
+                            <div class="col-12 col-sm-4">
                                 <div class="form-check form-check-inline">
                                     <label for="cierreMiercoles">Horario de cierre:</label>
-                                    <input type="time" id="cierreMiercoles" name="appt"> 
+                                    <input type="time" id="cierreMiercoles" name="appt">
                                 </div>
-                            </div>                   
+                            </div>
                         </div>
 
 
                         <div class="row">
-                            <div class="col-sm">
+                            <div class="col-12 col-sm-3">
                                 <div class="form-check form-check-inline">
-                                <input class="form-check-input " type="checkbox" id="cbxJueves" value="jueves">
-                                <label class="form-check-label" for="cbxJueves">Jueves</label>                     
+                                    <input class="form-check-input " type="checkbox" id="cbxJueves" value="jueves">
+                                    <label class="form-check-label" for="cbxJueves">Jueves</label>
                                 </div>
                             </div>
-                            <div class="col-sm">                           
+                            <div class="col-12 col-sm-5">
                                 <div class="form-check form-check-inline">
                                     <label for="aperturaJueves">Horario de apertura:</label>
-                                    <input type="time" id="aperturaJueves" name="appt"> 
+                                    <input type="time" id="aperturaJueves" name="appt">
                                 </div>
                             </div>
-                            <div class="col-sm">                            
+                            <div class="col-12 col-sm-4">
                                 <div class="form-check form-check-inline">
                                     <label for="cierreJueves">Horario de cierre:</label>
-                                    <input type="time" id="cierreJueves" name="appt"> 
+                                    <input type="time" id="cierreJueves" name="appt">
                                 </div>
-                            </div>                   
+                            </div>
                         </div>
 
 
                         <div class="row">
-                            <div class="col-sm">
+                            <div class="col-12 col-sm-3">
                                 <div class="form-check form-check-inline">
-                                <input class="form-check-input " type="checkbox" id="cbxViernes" value="viernes">
-                                <label class="form-check-label" for="cbxViernes">Viernes</label>                     
+                                    <input class="form-check-input " type="checkbox" id="cbxViernes" value="viernes">
+                                    <label class="form-check-label" for="cbxViernes">Viernes</label>
                                 </div>
                             </div>
-                            <div class="col-sm">                           
+                            <div class="col-12 col-sm-5">
                                 <div class="form-check form-check-inline">
                                     <label for="aperturaViernes">Horario de apertura:</label>
-                                    <input type="time" id="aperturaViernes" name="appt"> 
+                                    <input type="time" id="aperturaViernes" name="appt">
                                 </div>
                             </div>
-                            <div class="col-sm">                            
+                            <div class="col-12 col-sm-4">
                                 <div class="form-check form-check-inline">
                                     <label for="cierreViernes">Horario de cierre:</label>
-                                    <input type="time" id="cierreViernes" name="appt"> 
+                                    <input type="time" id="cierreViernes" name="appt">
                                 </div>
-                            </div>                   
+                            </div>
                         </div>
 
 
                         <div class="row">
-                            <div class="col-sm">
+                            <div class="col-12 col-sm-3">
                                 <div class="form-check form-check-inline">
-                                <input class="form-check-input " type="checkbox" id="cbxSabado" value="sabado">
-                                <label class="form-check-label" for="cbxSabado">Sábado</label>                     
+                                    <input class="form-check-input " type="checkbox" id="cbxSabado" value="sabado">
+                                    <label class="form-check-label" for="cbxSabado">Sábado</label>
                                 </div>
                             </div>
-                            <div class="col-sm">                           
+                            <div class="col-12 col-sm-5">
                                 <div class="form-check form-check-inline">
                                     <label for="aperturaSabado">Horario de apertura:</label>
-                                    <input type="time" id="aperturaSabado" name="appt"> 
+                                    <input type="time" id="aperturaSabado" name="appt">
                                 </div>
                             </div>
-                            <div class="col-sm">                            
+                            <div class="col-12 col-sm-4">
                                 <div class="form-check form-check-inline">
                                     <label for="cierreSabado">Horario de cierre:</label>
-                                    <input type="time" id="cierreSabado" name="appt"> 
+                                    <input type="time" id="cierreSabado" name="appt">
                                 </div>
-                            </div>                   
+                            </div>
                         </div>
 
 
                         <div class="row">
-                            <div class="col-sm">
+                            <div class="col-12 col-sm-3">
                                 <div class="form-check form-check-inline">
-                                <input class="form-check-input " type="checkbox" id="cbxDomingo" value="domingo">
-                                <label class="form-check-label" for="cbxDomingo">Domingo</label>                     
+                                    <input class="form-check-input " type="checkbox" id="cbxDomingo" value="domingo">
+                                    <label class="form-check-label" for="cbxDomingo">Domingo</label>
                                 </div>
                             </div>
-                            <div class="col-sm">                           
+                            <div class="col-12 col-sm-5">
                                 <div class="form-check form-check-inline">
                                     <label for="aperturaDomingo">Horario de apertura:</label>
-                                    <input type="time" id="aperturaDomingo" name="appt"> 
+                                    <input type="time" id="aperturaDomingo" name="appt">
                                 </div>
                             </div>
-                            <div class="col-sm">                            
+                            <div class="col-12 col-sm-4">
                                 <div class="form-check form-check-inline">
                                     <label for="cierreDomingo">Horario de cierre:</label>
-                                    <input type="time" id="cierreDomingo" name="appt"> 
+                                    <input type="time" id="cierreDomingo" name="appt">
                                 </div>
-                            </div>                   
+                            </div>
                         </div>
+
                     </div>
                     <div class="alert alert-danger" role="alert" id="msgErrorHorario">
-                        <label class="form-label" id="msgErrorHorario"></label>                  
+                        <label class="form-label">Porfavor completa los horarios</label>
                     </div>
 
-                <div class="mb-3 pt-3">
-                    <label>Materiales que recicla</label>
-                </div>
-                <div class="container">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                        <label class="form-check-label" for="inlineCheckbox1">Lata</label>
+                    <div class="mb-3 pt-3">
+                        <label>Materiales que recicla</label>
                     </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                        <label class="form-check-label" for="inlineCheckbox2">Papel</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-                        <label class="form-check-label" for="inlineCheckbox3">Cartón</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option4">
-                        <label class="form-check-label" for="inlineCheckbox4">Plásticos</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option5">
-                        <label class="form-check-label" for="inlineCheckbox5">Vidrio</label>
-                    </div>
-                    <div class="alert alert-danger" role="alert" id="msgErrorMateriales">
-                        <label class="form-label" id="msgErrorMateriales"></label>                  
-                    </div>
-
-                    <div class="file-upload mb-3 pt-3">
-                        <div class="file-select">
-                            <div class="file-select-button" id="fileName">Carga una imagen</div>
-                            <div class="file-select-name" id="noFile">No has cargado una imagen</div> 
-                            <input type="file" name="chooseFile" id="chooseFile">
+                    <div class="container">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                            <label class="form-check-label" for="inlineCheckbox1">Lata</label>
                         </div>
-                    </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                            <label class="form-check-label" for="inlineCheckbox2">Papel</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+                            <label class="form-check-label" for="inlineCheckbox3">Cartón</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option4">
+                            <label class="form-check-label" for="inlineCheckbox4">Plásticos</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option5">
+                            <label class="form-check-label" for="inlineCheckbox5">Vidrio</label>
+                        </div>
+                        <div class="alert alert-danger" role="alert" id="msgErrorMateriales">
+                            <label class="form-label">Porfavor ingresa almenos una opción</label>
+                        </div>
 
-                    <div class="row align-content-end">
-                        <div class="col offset-lg-10 offset-md-9 offset-sm-8 offset-xl-10">
-                            <div class="btnGeneral">
-                                <a href="#" id="inscribir">¡Modificar mi punto!</a>
+                        <div class="file-upload mb-3 pt-3">
+                            <div class="file-select">
+                                <div class="file-select-button" id="fileName ">Carga una imagen</div>
+                                <div class="file-select-name" id="noFile">No has cargado una imagen</div>
+                                <input type="file" name="chooseFile" id="chooseFile">
+                            </div>
+                        </div>
+
+                        <div class="row align-content-end">
+                            <div class="col offset-lg-10 offset-md-9 offset-sm-8 offset-xl-10">
+                                <div class="btnGeneral">
+                                    <a href="#" id="inscribir">¡Modificar!</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </form>
-
         </div>
     </div>
 </div>

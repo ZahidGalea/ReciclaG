@@ -8,10 +8,9 @@ $(document).ready(function () {
         }
         if ($(this).attr("value") == "2") {
             $(".Box").show('slow');
-
         }
     });
-    //$('input[type="radio"]').trigger('click');  // trigger the event
+    $('input[type="radio"]').trigger('click');  // trigger the event
     //alerts
 
 });
