@@ -1,4 +1,4 @@
-export function triggerHorarioBox() {
+export function CheckTriggerHorarioBox() {
 
     if ($(this).attr("value") == "1") {
         $(".HorarioBox").hide('slow');
@@ -8,3 +8,7 @@ export function triggerHorarioBox() {
 
     }
 };
+
+export function ValidarHorarioBox() {
+    // Nothing here
+}
