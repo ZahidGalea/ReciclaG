@@ -1,9 +1,8 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="utf-8" name='viewport' content='width=device-width, initial-scale=1'>
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&family=New+Tegomin&family=Roboto&display=swap"
           rel="stylesheet">
@@ -13,7 +12,6 @@
     <link rel="shortcut icon" href="../img/logo.png">
     <title>ReciclaG</title>
     <link rel="stylesheet" href="../css/main.css">
-
 
 </head>
 <body>
@@ -62,61 +60,65 @@ Ends - Navbar Section
             </div>
         </div>
         <div class="card mb-3">
-            <div class="row no-gutters bg-light">
-                <div class="col-md-7">
+
+            <div class="row no-gutters bg-light punto_content">
+                <div class="col-md-5 punto_img">
                     <img src="../img/iniciativa_providencia.jpeg" class="card-img" alt="...">
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-7 punto_information">
                     <div class="card-body">
                         <h5 class="card-title">Providencia</h5>
                         <p class="card-text">Organización: Municipalidad de providencia</p>
                         <p class="card-text">Correo de contacto:ambientalprov@gmail.cam</p>
                         <p class="card-text">Comuna: Providencia</p>
-                        <p class="card-text">Dirección: Pocuro 3083</p>
+                        <p class="card-text">Dirección: <span class="direccionPuntoReciclag">Pocuro 3083</span></p>
                         <p class="card-text">Horario: Punto disponible en todo horario</p>
                         <p class="card-text">Qué recicla: Lata, plástico, papel, vidrio, tetra pack</p>
                     </div>
                 </div>
+                <div class="map_canvas"></div>
             </div>
         </div>
 
         <div class="card mb-3">
-            <div class="row no-gutters bg-light">
-                <div class="col-md-5">
+            <div class="row no-gutters bg-light punto_content">
+                <div class="col-md-5 punto_information">
                     <div class="card-body">
                         <h5 class="card-title">Santiago</h5>
                         <p class="card-text">Organización: Intendencia metropolitana</p>
                         <p class="card-text">Correo de contacto: ambientalstgo@gmail.cam</p>
                         <p class="card-text">Comuna: Santiago</p>
-                        <p class="card-text">Dirección: Parque los reyes</p>
+                        <p class="card-text">Dirección: <span class="direccionPuntoReciclag">Parque los reyes</span></p>
                         <p class="card-text">Horario: Punto disponible en todo horario</p>
                         <p class="card-text">Qué recicla: Latas, hojalata, plásticos PET</p>
                     </div>
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-7 punto_img">
                     <img src="../img/iniciativa_santiago.jpeg" class="card-img" alt="...">
                 </div>
-
+                <div class="map_canvas"></div>
             </div>
         </div>
 
         <div class="card mb-3 ">
-            <div class="row no-gutters bg-light">
-                <div class="col-md-7">
+            <div class="row no-gutters bg-light punto_content">
+                <div class="col-md-7 punto_img">
                     <img src="../img/iniciativa_c_tango.jpeg" class="card-img" alt="...">
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-5 punto_information">
                     <div class="card-body">
                         <h5 class="card-title">Calera de Tango</h5>
-                        <p class="card-text">Organización: Municipalidad de Calera de Tango</p>
+                        <p class="card-text">Organización: <span
+                                id="puntoOrganizacion">Municipalidad de Calera de Tango</span></p>
                         <p class="card-text">Correo de contacto: ambientalctango@gmail.cam</p>
                         <p class="card-text">Comuna: Calera de Tango</p>
-                        <p class="card-text">Dirección:< Ignacio Carrera Pinto S/N/p>
+                        <p class="card-text">Dirección: <span class="direccionPuntoReciclag">Ignacio Carrera Pinto</span>
                         <p class="card-text">Horario: Lunes a Sábado de 10:00 a 19:00 horas</p>
                         <p class="card-text">Qué recicla: Aceite comestible, latas, tetra pack, plásticos, papel,
                             cartón</p>
                     </div>
                 </div>
+                <div class="map_canvas"></div>
             </div>
         </div>
 
@@ -190,9 +192,12 @@ Scripts section
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 
-<script type="application/javascript" src="../js/main.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL8b92ab1lGMXSS7hewAHMOHmld0MmDwg"></script>
+<script type="text/javascript" src="../js/main.js"></script>
+
 
 <!--
+AIzaSyAL8b92ab1lGMXSS7hewAHMOHmld0MmDwg
 Ends Scripts section
 -->
 
