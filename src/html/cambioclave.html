@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="../css/main.css">
 
 
+
 </head>
 
 <body>
@@ -79,14 +80,41 @@ Form Section
                     <label for="passwordnew" class="form-label">Clave nueva</label>
                     <input type="password" class="form-control" id="passwordnew" aria-describedby="emailHelp">
                 </div>
+
+                <!-- error si clave no cumple características -->
+                <!-- <div class="alert alert-danger" role="alert" id="msgErrorClave">
+                    <label class="form-label" id="textoErrorClave"></label>
+                </div> -->
+                <!-- div de mensaje si no cumple caracteristicas -->
+
+
+                 <!-- <div id="password-require"> -->
+                <div class="alert alert-light" role="alert" id="password-require">
+                  <h6>Requerimientos de la contraseña:</h6>
+                    <ul>
+                        <li id="letter" class="invalid">Al menos <strong>una minúscula</strong></li>
+                        <li id="capital" class="invalid">Al menos <strong>una mayúscula</strong></li>
+                        <li id="number" class="invalid">Al menos <strong>un número</strong></li>
+                        <li id="length" class="invalid">Al menos <strong>8 carácteres</strong></li>
+                        <!-- <li id="character" class="invalid">Al menos <strong>un carácter especial</strong></li> -->
+                    </ul>
+                </div>
+
+
+
+
                 <div class="mb-3">
                     <label for="passwordrepnew" class="form-label">Repita clave nueva</label>
                     <input type="password" class="form-control" id="passwordrepnew" aria-describedby="emailHelp">
                 </div>
+                <div class="alert alert-light" role="alert" id="password-repeat">
+                  <h6>Las claves ingresadas no son iguales</h6>
+                </div>
                 <div class="row align-content-end">
                     <div class="col offset-lg-10 offset-md-9 offset-sm-8 offset-xl-10">
                         <div class="btnGeneral">
-                            <a href="#">Cambiar clave</a>
+                            <!-- <a href="#">Cambiar clave</a> -->
+                            <button type="submit" class="btnGeneral" id="btnEnviar">Cambiar clave</button>
                         </div>
 
                     </div>
@@ -174,7 +202,43 @@ Scripts section
         crossorigin="anonymous"></script>
 
 <script type="application/javascript" src="../js/main.js"></script>
+<script type="application/javascript" src="../js/modules/validaciones.js"></script>
 
+<!-- <script>
+//validación de características de una clave-cambioclave.html
+$(document).ready(function() {
+  // $("#msgErrorClave").hide();
+
+  $("#btnEnviar").click(function() {
+       var retorno = true;
+
+       //validando minusculas
+       var pass = $("#passwordnew").val();
+       var minuscula = /[a-z]/g;
+       if(pass.trim() <= 6){
+           $("#msgErrorClave").show();
+           $("#textoErrorClave").text("el campo apellido debe estar lleno")
+           retorno = false;
+       }else {
+           $("#msgErrorClave").hide();
+       }
+
+       return retorno;
+
+       //validando mayúsculas
+
+
+       //validando números
+
+
+
+       //validando largo
+
+
+
+   });
+});
+</script> -->
 <!--
 Ends Scripts section
 -->
