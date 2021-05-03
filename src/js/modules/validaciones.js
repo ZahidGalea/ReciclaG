@@ -32,7 +32,7 @@
 
 $(document).ready(function() {
 
-  //validation of pasword requirements
+  //validation of password requirements
   $('#password-require').hide();
   $('#passwordnew').keyup(function() {
   // keyup code here
@@ -88,6 +88,32 @@ $(document).ready(function() {
           $('#password-repeat').show();
         }
       });
+
+      //modal-button "cambiarClave"
+      $("#btnEnviar").click(function() {
+        var passwd = $('#passwordnew').val();
+        var passwdrep = $('#passwordrepnew').val();
+         if(passwd === passwdrep){
+           $("#validationModal").modal('show');
+           // $("#msgSuccessModal").show();
+           $("#textModalSuccess").text("Cambio de clave exitoso.");
+           // $("#msgErrorModal").hide();
+           $("#textModalError").hide();
+
+         }else{
+           $("#validationModal").modal('show');
+           // $("#msgErrorModal").show();
+           $("#textModalError").text("No se ha podido cambiar clave.");
+           // $("#msgSuccessModal").hide();
+           $("#textModalSuccess").hide();
+         }
+
+
+      });
+
+
+
+
 
 
 
