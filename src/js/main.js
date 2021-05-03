@@ -10,7 +10,8 @@ function CheckTriggerHorarioBox() {
 
 function validarHorarioBox() {
     // Si el día esta marcado, validar las horas
-
+    let atLeastOne;
+    atLeastOne = false
     $diasHorario = document.querySelectorAll(".diaHorario")
     $diasHorario.forEach(function (currentValue, currentIndex, listObj) {
         $dia = $(currentValue).children('.dia');
@@ -20,10 +21,36 @@ function validarHorarioBox() {
 
         $diaForm = $dia.children('.diaForm');
         $input = $diaForm.children('.form-check-input')[0];
-        if ($input.checked){
 
+
+        if ($input.checked) {
+            atLeastOne = true
+            $form = $horaApertura.children('.horaAperturaForm')
+            $horaAperturaValue = moment($form.children('input')[0].value, 'hh:mm')
+
+            $form = $horaCierre.children('.horaCierreForm')
+            $horaCierreValue = moment($form.children('input')[0].value, 'hh:mm')
+
+            if ($horaCierreValue._i === '' || $horaAperturaValue._i === '') {
+                // Must show alerta for field not completed
+                console.log('Hora no llena')
+                $("#msgErrorHorario").show()
+            }
+            $("#msgErrorHorario").hide()
+
+            if ($horaAperturaValue > $horaCierreValue) {
+                // Must show alerta for Apertura < Cierre
+                console.log('Error de hora apertura mala')
+                $("#msgAperturaMayor").show()
+            }
+            $("#msgAperturaMayor").hide()
         }
     });
+    if (atLeastOne === false) {
+        console.log('Porfavor elige al menos una opción')
+        $("#msgSinOpcionElegida").show()
+    }
+    $("#msgSinOpcionElegida").hide()
 }
 
 function mapAddress(mapElement, address) {
@@ -50,10 +77,6 @@ function mapAddress(mapElement, address) {
 
 $(document).ready(function () {
     console.log("Hello World -- Main executed")
-    /*
-    * Renderization Part
-    */
-
 
     // HORARIO
     // Check if horario exists and load script
@@ -63,13 +86,14 @@ $(document).ready(function () {
         $(".opcionHorario").click(CheckTriggerHorarioBox);
     }
 
+    // ON INSCRIBIR O MODIFICAR PUNTO ............
+    $("#inscribir").click(function () {
+        //  Valida el HorarioBox
 
-    $("#inscribir").click(function() {
-        validarHorarioBox()
-
+        if ($("#opcionHorario2")[0].checked) {
+            validarHorarioBox()
+        }
     });
-
-
 
     // GOOGLE MAPS ON INICIATIVAS PAGE
     $puntoContent = document.querySelectorAll(".punto_content")
