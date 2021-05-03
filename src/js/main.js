@@ -1,23 +1,36 @@
 function CheckTriggerHorarioBox() {
 
-    if ($(this).attr("value") == "1") {
+    if ($(this).attr("value") === "1") {
         $(".HorarioBox").hide('slow');
     }
-    if ($(this).attr("value") == "2") {
+    if ($(this).attr("value") === "2") {
         $(".HorarioBox").show('slow');
-
     }
-};
+}
 
-function ValidarHorarioBox() {
-    // Nothing here
+function validarHorarioBox() {
+    // Si el día esta marcado, validar las horas
+
+    $diasHorario = document.querySelectorAll(".diaHorario")
+    $diasHorario.forEach(function (currentValue, currentIndex, listObj) {
+        $dia = $(currentValue).children('.dia');
+
+        $horaApertura = $(currentValue).children('.horaApertura')
+        $horaCierre = $(currentValue).children('.horaCierre')
+
+        $diaForm = $dia.children('.diaForm');
+        $input = $diaForm.children('.form-check-input')[0];
+        if ($input.checked){
+
+        }
+    });
 }
 
 function mapAddress(mapElement, address) {
     var geocoder = new google.maps.Geocoder();
 
     geocoder.geocode({'address': address}, function (results, status) {
-        if (status == google.maps.GeocoderStatus.OK) {
+        if (status === google.maps.GeocoderStatus.OK) {
             var mapOptions = {
                 zoom: 16,
                 center: results[0].geometry.location,
@@ -50,6 +63,11 @@ $(document).ready(function () {
         $(".opcionHorario").click(CheckTriggerHorarioBox);
     }
 
+
+    $("#inscribir").click(function() {
+        validarHorarioBox()
+
+    });
 
 
 
