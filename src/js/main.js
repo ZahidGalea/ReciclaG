@@ -33,24 +33,51 @@ function validarHorarioBox() {
 
             if ($horaCierreValue._i === '' || $horaAperturaValue._i === '') {
                 // Must show alerta for field not completed
-                console.log('Hora no llena')
-                $("#msgErrorHorario").show()
+
+                $("#msgErrorHorario")[0].style.display = "block"
+            } else {
+                $("#msgErrorHorario")[0].style.display = "none"
             }
-            $("#msgErrorHorario").hide()
+
 
             if ($horaAperturaValue > $horaCierreValue) {
                 // Must show alerta for Apertura < Cierre
-                console.log('Error de hora apertura mala')
-                $("#msgAperturaMayor").show()
+
+                $("#msgAperturaMayor")[0].style.display = "block"
+            } else {
+                $("#msgAperturaMayor")[0].style.display = "none"
             }
-            $("#msgAperturaMayor").hide()
+
         }
     });
     if (atLeastOne === false) {
-        console.log('Porfavor elige al menos una opción')
-        $("#msgSinOpcionElegida").show()
+
+        $("#msgSinOpcionElegida")[0].style.display = "block"
+    } else {
+        $("#msgSinOpcionElegida")[0].style.display = "none"
     }
-    $("#msgSinOpcionElegida").hide()
+
+}
+
+function validarFormTipoReciclag(){
+    var selected = false
+    $formTipoRecilagList = document.querySelectorAll(".formTipoReciclag")
+    $formTipoRecilagList.forEach(function (currentValue,
+                                   currentIndex,
+                                   listObj) {
+        if ($(currentValue).children('input')[0].checked) {
+            selected = true
+        }
+        }
+    );
+
+    if (selected ===false ){
+        $("#msgErrorMateriales")[0].style.display = "block"
+        return false
+    } else {
+        $("#msgErrorMateriales")[0].style.display = "none"
+        return true
+    }
 }
 
 function mapAddress(mapElement, address) {
@@ -89,10 +116,14 @@ $(document).ready(function () {
     // ON INSCRIBIR O MODIFICAR PUNTO ............
     $("#inscribir").click(function () {
         //  Valida el HorarioBox
-
         if ($("#opcionHorario2")[0].checked) {
             validarHorarioBox()
         }
+
+        // Valida los tipo de punto de reciclaG
+        validarFormTipoReciclag()
+
+
     });
 
     // GOOGLE MAPS ON INICIATIVAS PAGE
