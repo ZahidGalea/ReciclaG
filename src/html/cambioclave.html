@@ -76,11 +76,17 @@ Form Section
                     <label for="passwordold" class="form-label">Clave anterior</label>
                     <input type="password" class="form-control" id="passwordold" aria-describedby="emailHelp">
                 </div>
+                <div class="alert alert-danger" role="alert" id="msgErrorClave1">
+                    <label class="form-label" id="txtErrorClave1">Debe ingresar la clave anterior</label>
+                </div>  		    
+		    
                 <div class="mb-3">
                     <label for="passwordnew" class="form-label">Clave nueva</label>
                     <input type="password" class="form-control" id="passwordnew" aria-describedby="emailHelp">
                 </div>
-
+                <div class="alert alert-danger" role="alert" id="msgErrorClave2">
+                    <label class="form-label" id="txtErrorClave2">Debe ingresar la nueva clave</label>
+                </div>  
                 <!-- error si clave no cumple características -->
                 <!-- <div class="alert alert-danger" role="alert" id="msgErrorClave">
                     <label class="form-label" id="textoErrorClave"></label>
@@ -103,6 +109,10 @@ Form Section
                     <label for="passwordrepnew" class="form-label">Repita clave nueva</label>
                     <input type="password" class="form-control" id="passwordrepnew" aria-describedby="emailHelp">
                 </div>
+                <div class="alert alert-danger" role="alert" id="msgErrorClave3">
+                    <label class="form-label" id="txtErrorClave3">Debe repetir su nueva clave</label>
+                </div>		    
+		    
                 <div class="alert alert-danger" role="alert" id="password-repeat">
                   <h6>Las claves ingresadas no son iguales.</h6>
                 </div>
@@ -230,5 +240,49 @@ Ends Footer Section
 Ends Scripts section
 -->
 
+    <script type="text/javascript">
+        $(document).ready(function() {
+            //apaga etiquetas alert
+            $("#msgErrorClave1").hide();
+            $("#msgErrorClave2").hide();
+            $("#msgErrorClave3").hide();            
+
+           //valida envio de formulario
+            $("#btnEnviar").click(function() {
+                var retorno = true;
+                var claveanterior = $("#passwordold").val();
+                var clavenueva = $("#passwordnew").val();
+                var clavenuevarep = $("#passwordrepnew").val();
+            
+                if (claveanterior.trim() <= 0) {
+                    $("#msgErrorClave1").show();
+
+                    retorno = false;
+                } else {
+                    $("#msgErrorClave1").hide();
+                }
+
+                if (clavenueva.trim() <= 0) {
+                    $("#msgErrorClave2").show();
+                    retorno = false;
+                } else {
+                    $("#msgErrorClave2").hide();
+                }
+
+                if (clavenuevarep.trim() <= 0) {
+                    $("#msgErrorClave3").show();
+                    retorno = false;
+                } else {
+                    $("#msgErrorClave3").hide();
+                }
+
+                return retorno;
+          
+            
+            });
+
+        });
+    </script>	
+	
 </body>
 </html>
