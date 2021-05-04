@@ -75,22 +75,41 @@ Form Section
                     <label for="organizacion" class="form-label">Organización</label>
                     <input type="text" class="form-control" id="organizacion">
                 </div>
-                <div class="mb-3">
-                    <label for="telefono" class="form-label">Teléfono</label>
-                    <input type="text" class="form-control" id="telefono">
+                <div class="alert alert-danger" role="alert" id="msgErrorOrganizacion">
+                    <label class="form-label" id="txtErrorOrganizacion">Debe ingresar el nombre de la organización</label>
+                </div>                
+                
+               <div class="mb-3">
+                    <label for="fono" class="form-label">Teléfono</label>
+                    <input type="text" class="form-control" id="fono">Formato 123456789</input>
                 </div>
+                <div class="alert alert-warning" role="alert" id="msgErrorDigitos">
+                    <label class="form-label" id="txtErrorDigitos">El número debe tener 9 dígitos</label>
+                </div>
+                <div class="alert alert-danger" role="alert" id="msgErrorFono">
+                    <label class="form-label" id="txtErrorFono">Debe ingresar un número de contacto</label>
+                </div>
+            
                 <div class="mb-3">
                     <label for="email" class="form-label">Correo electrónico</label>
                     <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
                 </div>
+                <div class="alert alert-danger" role="alert" id="msgErrorMail">
+                    <label class="form-label" id="txtErrorMail">Debe ingresar un correo electrónico</label>
+                </div>            
+            
                 <div class="mb-3">
                     <label for="password" class="form-label">Clave</label>
                     <input type="password" class="form-control" id="password" aria-describedby="emailHelp">
                 </div>
+                <div class="alert alert-danger" role="alert" id="msgErrorClave">
+                    <label class="form-label" id="txtErrorClave">Debe ingresar una clave</label>
+                </div>            
+            
                 <div class="row align-content-end">
                     <div class="col offset-lg-10 offset-md-9 offset-sm-8 offset-xl-10">
                         <div class="btnGeneral">
-                            <a href="#">¡Inscribirme!</a>
+                            <a href="#" id="registrar">¡Inscribirme!</a>
                         </div>
 
                     </div>
@@ -183,6 +202,57 @@ Scripts section
 <!--
 Ends Scripts section
 -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            //apaga etiquetas alert
+            $("#msgErrorOrganizacion").hide();
+            $("#msgErrorFono").hide();
+            $("#msgErrorDigitos").hide();
+            $("#msgErrorMail").hide();
+            $("#msgErrorClave").hide();
+                        
+           //valida envio de formulario
+            $("#registrar").click(function() {
+                var retorno = true;
+                var organizacion = $("#organizacion").val();
+                var fono = $("#telefono").val();
+                var email = $("#email").val();
+                var password = $("#password").val();
+            
+                if (organizacion.trim() <= 0) {
+                    $("#msgErrorOrganizacion").show();
 
+                    retorno = false;
+                } else {
+                    $("#msgErrorOrganizacion").hide();
+                }
+
+                if (fono.trim() <= 0) {
+                    $("#msgErrorFono").show();
+                    retorno = false;
+                } else {
+                    $("#msgErrorFono").hide();
+                }
+
+                if (email.trim() <= 0) {
+                    $("#msgErrorMail").show();
+                    retorno = false;
+                } else {
+                    $("#msgErrorMail").hide();
+                }
+
+                if (password.trim() <= 0) {
+                    $("#msgErrorClave").show();
+                    retorno = false;
+                } else {
+                    $("#msgErrorClave").hide();
+                }
+
+                return retorno;        
+            });
+
+        });
+    </script>
+    
 </body>
 </html>
