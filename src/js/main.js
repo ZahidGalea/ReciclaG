@@ -82,21 +82,20 @@ function validarFormTipoReciclag() {
 
 function mapAddress(mapElement, address) {
     var geocoder = new google.maps.Geocoder();
-
-    $location = geocoder.geocode({'address': address}, function (results, status) {
+    var result;
+    geocoder.geocode({'address': address}, function (results, status) {
         if (status === google.maps.GeocoderStatus.OK) {
             var mapOptions = {
                 zoom: 16,
                 center: results[0].geometry.location,
                 disableDefaultUI: true
             };
-            var map = new google.maps.Map(mapElement, mapOptions);
+            var map = new google.maps.Map(mapElement.children('.map_canvas')[0], mapOptions);
             var marker = new google.maps.Marker({
                 map: map,
                 position: results[0].geometry.location
             });
 
-            $("#temperaturaPunto").text(results[0].geometry.location.toString());
 
 
         } else {
@@ -105,10 +104,8 @@ function mapAddress(mapElement, address) {
         }
 
     });
-
-    return $location
-
-
+    console.log(result)
+    return result
 }
 
 
@@ -136,19 +133,32 @@ $(document).ready(function () {
     // INICIATIVAS PAGE API CONSUMPTION
     $puntoContent = document.querySelectorAll(".punto_content")
     $puntoContent.forEach(function (currentValue, currentIndex, listObj) {
-        // GOOGLE MAPS CONSUMPTION API
+        // GOOGLE MAPS AND CLIMA CONSUMPTION API
         $puntoInformation = $(currentValue).children('.punto_information');
         $puntoInformationBody = $puntoInformation.children('.card-body')
         $cardText = $puntoInformationBody.children('.card-text')
-        $direccionPuntoRerciclag = $cardText.children('.direccionPuntoReciclag').text()
-        console.log($direccionPuntoRerciclag)
-        var result = mapAddress($(currentValue).children('.map_canvas')[0], $direccionPuntoRerciclag.concat(" Chile"));
 
-        result.lat()
-        // CLIMA API CONSUMPTION
-        result.then(function (data) {
-            console.log(data)
-        })
+        $direccionPuntoRerciclag = $cardText.children('.direccionPuntoReciclag').text()
+        $temperaturePunto = $cardText.children('.temperaturaPunto')
+
+        mapAddress($(currentValue), $direccionPuntoRerciclag.concat(" Chile"));
+
+        var geocoder = new google.maps.Geocoder();
+
+        geocoder.geocode({'address': $direccionPuntoRerciclag}, function (results, status, document) {
+
+            $lat = results[0].geometry.location.lat()
+            $lng = results[0].geometry.location.lng()
+
+            jQuery.get('https://api.openweathermap.org/data/2.5/weather?lat='+$lat+'&lon='+$lng+'&exclude=hourly,daily&appid=c4cff409a04c1a3b55349f77cd26d0dd&lang=sp&units=metric',
+                function(data) {
+                    $temperaturePunto[0].innerHTML = "Temperatura: "+data.main.temp+" grados - "+data.weather[0].description
+
+                })
+
+
+        });
+
 
 
     });
