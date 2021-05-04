@@ -59,19 +59,19 @@ function validarHorarioBox() {
 
 }
 
-function validarFormTipoReciclag(){
+function validarFormTipoReciclag() {
     var selected = false
     $formTipoRecilagList = document.querySelectorAll(".formTipoReciclag")
     $formTipoRecilagList.forEach(function (currentValue,
-                                   currentIndex,
-                                   listObj) {
-        if ($(currentValue).children('input')[0].checked) {
-            selected = true
-        }
+                                           currentIndex,
+                                           listObj) {
+            if ($(currentValue).children('input')[0].checked) {
+                selected = true
+            }
         }
     );
 
-    if (selected ===false ){
+    if (selected === false) {
         $("#msgErrorMateriales")[0].style.display = "block"
         return false
     } else {
@@ -83,7 +83,7 @@ function validarFormTipoReciclag(){
 function mapAddress(mapElement, address) {
     var geocoder = new google.maps.Geocoder();
 
-    geocoder.geocode({'address': address}, function (results, status) {
+    $location = geocoder.geocode({'address': address}, function (results, status) {
         if (status === google.maps.GeocoderStatus.OK) {
             var mapOptions = {
                 zoom: 16,
@@ -95,10 +95,20 @@ function mapAddress(mapElement, address) {
                 map: map,
                 position: results[0].geometry.location
             });
+
+            $("#temperaturaClima").text(data.Temp);
+
+
         } else {
             alert("Geocode was not successful for the following reason: " + status);
+
         }
+
     });
+
+    return $location
+
+
 }
 
 
@@ -119,22 +129,27 @@ $(document).ready(function () {
         if ($("#opcionHorario2")[0].checked) {
             validarHorarioBox()
         }
-
         // Valida los tipo de punto de reciclaG
         validarFormTipoReciclag()
-
-
     });
 
-    // GOOGLE MAPS ON INICIATIVAS PAGE
+    // INICIATIVAS PAGE API CONSUMPTION
     $puntoContent = document.querySelectorAll(".punto_content")
     $puntoContent.forEach(function (currentValue, currentIndex, listObj) {
-
+        // GOOGLE MAPS CONSUMPTION API
         $puntoInformation = $(currentValue).children('.punto_information');
         $puntoInformationBody = $puntoInformation.children('.card-body')
         $cardText = $puntoInformationBody.children('.card-text')
         $direccionPuntoRerciclag = $cardText.children('.direccionPuntoReciclag').text()
         console.log($direccionPuntoRerciclag)
-        mapAddress($(currentValue).children('.map_canvas')[0], $direccionPuntoRerciclag.concat(" Santiago de chile"));
+        var result = mapAddress($(currentValue).children('.map_canvas')[0], $direccionPuntoRerciclag.concat(" Chile"));
+
+        result.lat()
+        // CLIMA API CONSUMPTION
+        result.then(function (data) {
+            console.log(data)
+        })
+
+
     });
 });
