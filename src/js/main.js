@@ -73,10 +73,10 @@ function validarFormTipoReciclag() {
 
     if (selected === false) {
         $("#msgErrorMateriales")[0].style.display = "block"
-        return false
+
     } else {
         $("#msgErrorMateriales")[0].style.display = "none"
-        return true
+
     }
 }
 
@@ -96,7 +96,7 @@ function mapAddress(mapElement, address) {
                 position: results[0].geometry.location
             });
 
-            $("#temperaturaClima").text(data.Temp);
+            $("#temperaturaPunto").text(results[0].geometry.location.toString());
 
 
         } else {
