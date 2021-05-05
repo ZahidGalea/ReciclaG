@@ -86,10 +86,15 @@ Form Section
                 <div class="alert alert-warning" role="alert" id="msgErrorDigitos">
                     <label class="form-label" id="txtErrorDigitos">El número debe tener 9 dígitos</label>
                 </div>
+                <div class="alert alert-warning" role="alert" id="msgErrorTexto">
+                    <label class="form-label" id="txtErrorTexto">Sólo puede ingresar números</label>
+                </div>
+
+
                 <div class="alert alert-danger" role="alert" id="msgErrorFono">
                     <label class="form-label" id="txtErrorFono">Debe ingresar un número de contacto</label>
                 </div>
-
+            
                 <div class="mb-3">
                     <label for="email" class="form-label">Correo electrónico</label>
                     <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
@@ -247,8 +252,33 @@ Ends Scripts section
             $("#msgErrorOrganizacion").hide();
             $("#msgErrorFono").hide();
             $("#msgErrorDigitos").hide();
+            $("#msgErrorTexto").hide();
             $("#msgErrorMail").hide();
             $("#msgErrorClave").hide();
+
+            // funcion para validar la edad del usuario este en el rango 0 a 140
+            $("#telefono").blur(function(event) {
+                var fono = parseInt($("#telefono").val());
+                if (fono < 111111111 || fono > 999999999) {
+                    $("#msgErrorDigitos").show();
+                    return false;
+                } else {
+                    $("#msgErrorDigitos").hide();
+                }
+
+            });
+
+            $("#telefono").keypress(function (e) {
+                //if the letter is not digit then display error and don't type anything
+                if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                    //display error message
+                    $("#msgErrorTexto").show();
+                        return false;
+                } else {
+                    $("#msgErrorTexto").hide();
+                }
+            });
+
 
 
 
@@ -365,6 +395,7 @@ Ends Scripts section
 
                 return retorno
 
+            return retorno;
             });
 
 
