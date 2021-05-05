@@ -61,17 +61,18 @@ $(document).ready(function () {
     $("#btnEnviar").click(function () {
         var passwd = $('#passwordnew').val();
         var passwdrep = $('#passwordrepnew').val();
-        if (passwd === passwdrep) {
+
+        if (passwd === passwdrep && passwd !== '' && passwdrep !== '') {
             $("#validationModal").modal('show');
             $("#msgSuccessModal").show();
-            $("#textModalSuccess").text("Cambio de clave exitoso.");
+            $("#textModal").text("Cambio de clave exitoso.");
             // $("#msgErrorModal").hide();
             $("#textModalError").hide();
 
         } else {
             $("#validationModal").modal('show');
             $("#msgErrorModal").show();
-            $("#textModalError").text("No se ha podido cambiar clave.");
+            $("#textModal").text("No se ha podido cambiar clave.");
             // $("#msgSuccessModal").hide();
             $("#textModalSuccess").hide();
         }

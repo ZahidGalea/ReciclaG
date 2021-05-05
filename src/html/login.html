@@ -42,19 +42,26 @@
                                        placeholder="Email address">
                             </div>
                             <div class="alert alert-danger" role="alert" id="emailValidation">
-                              <h6>El correo ingresado no es válido.</h6>
+                                <h6>El correo ingresado no es válido.</h6>
                             </div>
                             <div class="form-group mb-4">
                                 <label for="password" class="sr-only">Contraseña</label>
                                 <input type="password" name="password" id="password" class="form-control"
-                                       placeholder="***********">
+                                       placeholder="*******">
                             </div>
+
+                            <div class="alert alert-danger" role="alert" id="passwordValidation">
+                                <h6>El password no puede estar sin valores.</h6>
+                            </div>
+
                             <input name="login" id="login" class="btn btn-block btnGeneral mb-4" type="button"
-                                   onclick="window.location.href='dashboard.html'"
+
                                    value="Login">
                         </form>
                         <a href="verificafono.html" class="" style="color:silver;">Olvidaste tu contraseña?</a>
-                        <p class="login-card-footer-text">No tienes una cuenta? <a href="crearusuario.html"class="text-reset">Registrate aquí</a></p>
+                        <p class="login-card-footer-text">No tienes una cuenta? <a href="crearusuario.html"
+                                                                                   class="text-reset">Registrate
+                            aquí</a></p>
                     </div>
                 </div>
             </div>
@@ -133,28 +140,55 @@ Ends Footer Section
 <script type="application/javascript" src="../js/validaciones.js"></script>
 
 <script type="text/javascript">
-$(document).ready(function(){
+    $(document).ready(function () {
 
-  //validando formato de correo
-  $("#emailValidation").hide();
-  $('#email').blur(function () {
-
-    var emailInput = $('#email').val();
-    var regExpEmail = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-    if (!regExpEmail.test(emailInput)){
-        $("#emailValidation").show();
-    }else{
+        //validando formato de correo
         $("#emailValidation").hide();
-    }
+        $("#passwordValidation").hide();
+        $('#email').blur(function () {
+
+            var emailInput = $('#email').val();
+            var regExpEmail = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            if (!regExpEmail.test(emailInput)) {
+                $("#emailValidation").show();
+            } else {
+                $("#emailValidation").hide();
+            }
 
 
-  });
+        });
+
+        $("#login").click(function () {
+            var isCorrect = true
+            var password = $("#password").val();
+            var emailInput = $('#email').val();
+
+            if (password.trim() <= 0) {
+                $("#passwordValidation").show();
+                isCorrect = false
+            } else {
+                $("#passwordValidation").hide();
+
+            }
+
+            if (emailInput.trim() <= 0) {
+                $("#emailValidation").show();
+                isCorrect = false
+            } else {
+                $("#emailValidation").hide();
+            }
+
+            if (isCorrect) {
+                window.location.href = 'dashboard.html'
+            }
 
 
 
-});
+
+        })
 
 
+    });
 
 
 </script>
