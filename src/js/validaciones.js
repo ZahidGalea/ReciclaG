@@ -1,34 +1,3 @@
-//validación de características de una clave-cambioclave.html
-// $(document).ready(function() {
-//   $("#msgErrorClave").hide();
-//
-//   $("#btnEnviar").click(function() {
-//      var retorno = true;
-//      // $("#passwordnew").onkeyup(function(event){
-//        //validando minusculas
-//        var pass = $("#passwordnew").val();
-//        var minuscula = /[a-z]/g;
-//        if(pass.test(minuscula)){
-//          $("#msgErrorClave").show();
-//          $("#textoErrorClave").text("el campo apellido debe estar lleno")
-//          retorno = false;
-//        }else {
-//            $("#msgErrorClave").hide();
-//        }
-//       return retorno;
-//        //validando mayúsculas
-//
-//
-//        //validando números
-//
-//
-//
-//        //validando largo
-//      // });
-//
-//
-//    });
-// });
 
 $(document).ready(function () {
 
@@ -94,14 +63,14 @@ $(document).ready(function () {
         var passwdrep = $('#passwordrepnew').val();
         if (passwd === passwdrep) {
             $("#validationModal").modal('show');
-            // $("#msgSuccessModal").show();
+            $("#msgSuccessModal").show();
             $("#textModalSuccess").text("Cambio de clave exitoso.");
             // $("#msgErrorModal").hide();
             $("#textModalError").hide();
 
         } else {
             $("#validationModal").modal('show');
-            // $("#msgErrorModal").show();
+            $("#msgErrorModal").show();
             $("#textModalError").text("No se ha podido cambiar clave.");
             // $("#msgSuccessModal").hide();
             $("#textModalSuccess").hide();

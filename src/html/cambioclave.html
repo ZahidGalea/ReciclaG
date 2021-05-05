@@ -78,20 +78,16 @@ Form Section
                 </div>
                 <div class="alert alert-danger" role="alert" id="msgErrorClave1">
                     <label class="form-label" id="txtErrorClave1">Debe ingresar la clave anterior</label>
-                </div>  		    
-		    
+                </div>
+
                 <div class="mb-3">
                     <label for="passwordnew" class="form-label">Clave nueva</label>
                     <input type="password" class="form-control" id="passwordnew" aria-describedby="emailHelp">
                 </div>
                 <div class="alert alert-danger" role="alert" id="msgErrorClave2">
                     <label class="form-label" id="txtErrorClave2">Debe ingresar la nueva clave</label>
-                </div>  
-                <!-- error si clave no cumple características -->
-                <!-- <div class="alert alert-danger" role="alert" id="msgErrorClave">
-                    <label class="form-label" id="textoErrorClave"></label>
-                </div> -->
-                <!-- div de mensaje si no cumple caracteristicas -->
+                </div>
+
 
 
                  <!-- <div id="password-require"> -->
@@ -111,8 +107,8 @@ Form Section
                 </div>
                 <div class="alert alert-danger" role="alert" id="msgErrorClave3">
                     <label class="form-label" id="txtErrorClave3">Debe repetir su nueva clave</label>
-                </div>		    
-		    
+                </div>
+                <!-- mostrando si claves no son iguales -->
                 <div class="alert alert-danger" role="alert" id="password-repeat">
                   <h6>Las claves ingresadas no son iguales.</h6>
                 </div>
@@ -192,12 +188,12 @@ Footer Section
 Ends Footer Section
 -->
 
-<!-- Success Modal-->
+<!-- Modal-->
 <div class="modal" id="validationModal" role="dialog">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-          <h4 class="modal-title">Notification</h4>
+          <h4 class="modal-title">Notificación</h4>
 					<button type="button" class="close" data-dismiss="modal">×</button>
 
 				</div>
@@ -210,7 +206,7 @@ Ends Footer Section
           <!-- </div> -->
 				</div>
         <div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
 				</div>
 			</div>
 		</div>
@@ -245,7 +241,7 @@ Ends Scripts section
             //apaga etiquetas alert
             $("#msgErrorClave1").hide();
             $("#msgErrorClave2").hide();
-            $("#msgErrorClave3").hide();            
+            $("#msgErrorClave3").hide();
 
            //valida envio de formulario
             $("#btnEnviar").click(function() {
@@ -253,7 +249,7 @@ Ends Scripts section
                 var claveanterior = $("#passwordold").val();
                 var clavenueva = $("#passwordnew").val();
                 var clavenuevarep = $("#passwordrepnew").val();
-            
+
                 if (claveanterior.trim() <= 0) {
                     $("#msgErrorClave1").show();
 
@@ -277,12 +273,12 @@ Ends Scripts section
                 }
 
                 return retorno;
-          
-            
+
+
             });
 
         });
-    </script>	
-	
+    </script>
+
 </body>
 </html>
