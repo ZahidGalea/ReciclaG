@@ -75,14 +75,29 @@ Form Section
                     <label for="passwordnew" class="form-label">Clave nueva</label>
                     <input type="password" class="form-control" id="passwordnew" aria-describedby="emailHelp">
                 </div>
+                <!-- <div id="password-require"> -->
+               <div class="alert alert-light" role="alert" id="password-require">
+                 <h6>Requerimientos de la contraseña:</h6>
+                   <ul>
+                       <li id="letter" class="invalid">Al menos <strong>una minúscula</strong></li>
+                       <li id="capital" class="invalid">Al menos <strong>una mayúscula</strong></li>
+                       <li id="number" class="invalid">Al menos <strong>un número</strong></li>
+                       <li id="length" class="invalid">Al menos <strong>8 carácteres</strong></li>
+                       <!-- <li id="character" class="invalid">Al menos <strong>un carácter especial</strong></li> -->
+                   </ul>
+               </div>
                 <div class="mb-3">
                     <label for="passwordrepnew" class="form-label">Repita clave nueva</label>
                     <input type="password" class="form-control" id="passwordrepnew" aria-describedby="emailHelp">
                 </div>
+                <div class="alert alert-danger" role="alert" id="password-repeat">
+                  <h6>Las claves ingresadas no son iguales.</h6>
+                </div>
                 <div class="row align-content-end">
                     <div class="col offset-lg-10 offset-md-9 offset-sm-8 offset-xl-10">
                         <div class="btnGeneral">
-                            <a href="#">Cambiar clave</a>
+                            <!-- <a href="#">Cambiar clave</a> -->
+                            <button type="button" class="btn btnGeneral" id="btnEnviar" data-target="#validationModal">Cambiar clave</button>
                         </div>
 
                     </div>
@@ -153,6 +168,31 @@ Footer Section
 <!--
 Ends Footer Section
 -->
+<!-- Modal-->
+<div class="modal" id="validationModal" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+          <h4 class="modal-title">Notificación</h4>
+					<button type="button" class="close" data-dismiss="modal">×</button>
+
+				</div>
+				<div class="modal-body">
+          <!-- <div class="alert alert-success" role="alert" id="#msgSuccessModal"> -->
+              <label class="form-label" id="textModalSuccess"></label>
+          <!-- </div> -->
+          <!-- <div class="alert alert-danger" role="alert" id="#msgErrorModal"> -->
+              <label class="form-label" id="textModalError"></label>
+          <!-- </div> -->
+				</div>
+        <div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<!-- End Modal -->
 
 
 <!--
@@ -171,6 +211,7 @@ Scripts section
 
 
 <script type="application/javascript" src="../js/main.js"></script>
+<script type="application/javascript" src="../js/validaciones.js"></script>
 
 <!--
 Ends Scripts section

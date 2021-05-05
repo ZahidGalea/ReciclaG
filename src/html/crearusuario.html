@@ -94,9 +94,13 @@ Form Section
                 <div class="alert alert-danger" role="alert" id="msgErrorFono">
                     <label class="form-label" id="txtErrorFono">Debe ingresar un número de contacto</label>
                 </div>
+            
                 <div class="mb-3">
                     <label for="email" class="form-label">Correo electrónico</label>
                     <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                </div>
+                <div class="alert alert-danger" role="alert" id="emailValidation">
+                  <h6>El correo ingresado no es válido.</h6>
                 </div>
                 <div class="alert alert-danger" role="alert" id="msgErrorMail">
                     <label class="form-label" id="txtErrorMail">Debe ingresar un correo electrónico</label>
@@ -106,6 +110,17 @@ Form Section
                     <label for="password" class="form-label">Clave</label>
                     <input type="password" class="form-control" id="password" aria-describedby="emailHelp">
                 </div>
+                <!-- validación requerimientos clave -->
+                <div class="alert alert-light" role="alert" id="password-require">
+                  <h6>Requerimientos de la contraseña:</h6>
+                    <ul>
+                        <li id="letter" class="invalid">Al menos <strong>una minúscula</strong></li>
+                        <li id="capital" class="invalid">Al menos <strong>una mayúscula</strong></li>
+                        <li id="number" class="invalid">Al menos <strong>un número</strong></li>
+                        <li id="length" class="invalid">Al menos <strong>8 carácteres</strong></li>
+                        <!-- <li id="character" class="invalid">Al menos <strong>un carácter especial</strong></li> -->
+                    </ul>
+                </div>
                 <div class="alert alert-danger" role="alert" id="msgErrorClave">
                     <label class="form-label" id="txtErrorClave">Debe ingresar una clave</label>
                 </div>
@@ -113,7 +128,8 @@ Form Section
                 <div class="row align-content-end">
                     <div class="col offset-lg-10 offset-md-9 offset-sm-8 offset-xl-10">
                         <div class="btnGeneral">
-                            <a href="#" id="registrar">¡Inscribirme!</a>
+                            <!-- <a href="#" id="registrar">¡Inscribirme!</a> -->
+                            <button type="button" class="btn btnGeneral" id="registrar" data-target="#validationModal">Inscribirme</button>
                         </div>
 
                     </div>
@@ -184,7 +200,31 @@ Footer Section
 <!--
 Ends Footer Section
 -->
+<!-- Modal-->
+<div class="modal" id="validationModal" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+          <h4 class="modal-title">Notificación</h4>
+					<button type="button" class="close" data-dismiss="modal">×</button>
 
+				</div>
+				<div class="modal-body">
+          <!-- <div class="alert alert-success" role="alert" id="#msgSuccessModal"> -->
+              <label class="form-label" id="textModalSuccess"></label>
+          <!-- </div> -->
+          <!-- <div class="alert alert-danger" role="alert" id="#msgErrorModal"> -->
+              <label class="form-label" id="textModalError"></label>
+          <!-- </div> -->
+				</div>
+        <div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<!-- End Modal -->
 
 <!--
 Scripts section
@@ -199,6 +239,9 @@ Scripts section
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
+<script type="application/javascript" src="../js/main.js"></script>
+
 
 <!--
 Ends Scripts section
@@ -224,6 +267,7 @@ Ends Scripts section
                 }
 
             });
+
             $("#telefono").keypress(function (e) {
                 //if the letter is not digit then display error and don't type anything
                 if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
@@ -235,7 +279,70 @@ Ends Scripts section
                 }
             });
 
+
+
+
+            //validando formato de correo
+            $("#emailValidation").hide();
+            $('#email').focus(function () {
+
+              var emailInput = $('#email').val();
+              var regExpEmail = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+              if (!regExpEmail.test(emailInput)){
+                  $("#emailValidation").show();
+              }else{
+                  $("#emailValidation").hide();
+              }
+            });
+
+            //validando requerimientos clave
+            $('#password-require').hide();
+            $('#password').keyup(function () {
+                // keyup code here
+                var passwd = $(this).val();
+                //letter
+                if (passwd.match(/[A-z]/)) {
+                    $('#letter').removeClass('invalid').addClass('valid');
+                } else {
+                    $('#letter').removeClass('valid').addClass('invalid');
+                }
+                //capital letter
+                if (passwd.match(/[A-Z]/)) {
+                    $('#capital').removeClass('invalid').addClass('valid');
+                } else {
+                    $('#capital').removeClass('valid').addClass('invalid');
+                }
+                //number
+                if (passwd.match(/\d/)) {
+                    $('#number').removeClass('invalid').addClass('valid');
+                } else {
+                    $('#number').removeClass('valid').addClass('invalid');
+                }
+                //length
+                if (passwd.length < 8) {
+                    $('#length').removeClass('valid').addClass('invalid');
+                } else {
+                    $('#length').removeClass('invalid').addClass('valid');
+                }
+                //special characters
+                // if (passwd.match(/^\s*[~!@#$%^&*\s]+\s*$/)){
+                //   $('#character').removeClass('valid').addClass('invalid');
+                // } else {
+                //   $('#character').removeClass('invalid').addClass('valid');
+                // }
+
+
+            }).focus(function () {
+                $('#password-require').show();
+            }).blur(function () {
+                $('#password-require').hide();
+            });
+
+
+
+           //valida envio de formulario
             $("#registrar").click(function() {
+
                 var retorno = true;
                 var organizacion = $("#organizacion").val();
                 var fono = $("#telefono").val();
@@ -244,13 +351,21 @@ Ends Scripts section
 
                 if (organizacion.trim() <= 0) {
                     $("#msgErrorOrganizacion").show();
+                    $("#validationModal").modal('show');
+                    $("#textModalError").text("Hay errores en el formulario.");
+                    $("#textModalSuccess").hide();
                     retorno = false;
                 } else {
                     $("#msgErrorOrganizacion").hide();
+
+
                 }
 
                 if (fono.trim() <= 0) {
                     $("#msgErrorFono").show();
+                    $("#validationModal").modal('show');
+                    $("#textModalError").text("Hay errores en el formulario.");
+                    $("#textModalSuccess").hide();
                     retorno = false;
                 } else {
                     $("#msgErrorFono").hide();
@@ -258,22 +373,34 @@ Ends Scripts section
 
                 if (email.trim() <= 0) {
                     $("#msgErrorMail").show();
+                    $("#validationModal").modal('show');
+                    $("#textModalError").text("Hay errores en el formulario.");
+                    $("#textModalSuccess").hide();
                     retorno = false;
                 } else {
+
                     $("#msgErrorMail").hide();
                 }
 
                 if (password.trim() <= 0) {
+
                     $("#msgErrorClave").show();
+                    $("#validationModal").modal('show');
+                    $("#textModalError").text("Hay errores en el formulario.");
+                    $("#textModalSuccess").hide();
                     retorno = false;
                 } else {
                     $("#msgErrorClave").hide();
                 }
 
+                return retorno
+
             return retorno;
             });
 
+
         });
     </script>
+
 </body>
 </html>
