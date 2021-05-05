@@ -73,9 +73,15 @@ Form Section
                     <label for="comuna" class="form-label">Comuna</label>
                     <input type="text" class="form-control" id="comuna">
                 </div>
+                <div class="alert alert-danger" role="alert" id="msgErrorComuna">
+                    <label class="form-label" id="txtErrorComuna">Debe ingresar una comuna</label>
+                </div>
                 <div class="mb-3">
                     <label for="direccion" class="form-label">Dirección</label>
                     <input type="text" class="form-control" id="direccion">
+                </div>
+                <div class="alert alert-danger" role="alert" id="msgErrorDireccion">
+                    <label class="form-label" id="txtErrorDireccion">Debe ingresar una dirección</label>
                 </div>
                 <div class="mb-3">
                     <label for="horario" class="form-label">Horario</label>
@@ -199,6 +205,39 @@ Scripts section
 <!--
 Ends Scripts section
 -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            //apaga etiquetas alert
+            $("#msgErrorComuna").hide();
+            $("#msgErrorDireccion").hide();
 
+           //valida envio de formulario
+            $("#inscribir").click(function() {
+                var retorno = true;
+                var comuna = $("#comuna").val();
+                var direccion = $("#direccion").val();
+            
+                if (comuna.trim() <= 0) {
+                    $("#msgErrorComuna").show();
+
+                    retorno = false;
+                } else {
+                    $("#msgErrorComuna").hide();
+                }
+
+                if (direccion.trim() <= 0) {
+                    $("#msgErrorDireccion").show();
+                    retorno = false;
+                } else {
+                    $("#msgErrorDireccion").hide();
+                }
+
+                return retorno;
+          
+            
+            });
+
+        });
+    </script>  
 </body>
 </html>
