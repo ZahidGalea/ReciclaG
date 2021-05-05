@@ -75,6 +75,9 @@ Form Section
                     <label for="telefono" class="form-label">Teléfono</label>
                     <input type="password" class="form-control" id="telefono" aria-describedby="emailHelp">
                 </div>
+                <div class="alert alert-danger" role="alert" id="msgErrorFono">
+                    <label class="form-label" id="txtErrorFono">Debe ingresar su número de teléfono registrado</label>
+                </div>                
 
                 <div class="row align-content-end">
                     <div class="col offset-lg-10 offset-md-9 offset-sm-8 offset-xl-10">
@@ -166,9 +169,33 @@ Scripts section
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 
+<script type="application/javascript" src="../js/main.js"></script>
+
 <!--
 Ends Scripts section
 -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            //apaga etiquetas alert
+            $("#msgErrorFono").hide();
 
+           //valida envio de formulario
+            $("#verificar").click(function() {
+                var fono = $("#telefono").val();
+            
+                if (fono.trim() <= 0) {
+                    $("#msgErrorFono").show();
+                    retorno = false;
+                } else {
+                    $("#msgErrorFono").hide();
+                }
+
+                return retorno;        
+            });
+
+        });
+    </script>
+
+    
 </body>
 </html>

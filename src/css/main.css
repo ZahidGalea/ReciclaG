@@ -47,12 +47,12 @@ h1 {
     background-color: #729d39;
     border: none;
     color: white;
-    padding: 15px 32px;
+    /*padding: 15px 32px;*/
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 25px 2px;
+    margin: 5px 2px;
     cursor: pointer;
     border-color: #007bff;
     position: relative;
@@ -73,6 +73,11 @@ h1 {
 
 .logoLogin{
   margin: auto;
+}
+
+.map_canvas {
+    width: 100%;
+    height: 200px;
 }
 
 .formLogin {
@@ -122,9 +127,6 @@ h1 {
 
 }
 
-.copyright {
-
-}
 
 .bg-primary {
     background-color: #36622b !important;
@@ -234,22 +236,6 @@ TO-DO: logo con 50% fastidia la navbar
     height: 30rem;
 }
 
-/* Contact form */
-.contact {
-    background-color: #729d39;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    color: white;
-}
-
-/* Send button */
-.align-right {
-    text-align: right;
-    border: 0;
-}
-
 .btn:link,
 .btn:visited {
     text-decoration: none;
@@ -263,12 +249,6 @@ TO-DO: logo con 50% fastidia la navbar
     transition: all .5s;
 }
 
-.btn-green {
-    background: #36622b;
-    color: #fbfad3;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
 
 .inscribir-action-div {
     padding-top: 20px
@@ -300,27 +280,156 @@ a:hover {
 }
 
 /* upload button */
-.upload-btn-wrapper {
-    position: relative;
-    overflow: hidden;
-    display: inline-block;
-    padding: 30px 0px;
-  }
+.file-upload{
+    display:block;
+    text-align:center;
+    font-size: 12px;
+}
+.file-upload .file-select{
+    display:block;
+    border: 2px solid #729d39;
+    color: #212529;
+    cursor:pointer;
+    height:40px;
+    line-height:40px;
+    text-align:left;
+    background:#FFFFFF;
+    overflow:hidden;
+    position:relative;
+}
+.file-upload .file-select .file-select-button{
+    background:#729d39;
+    padding:0 100px;
+    display:inline-block;
+    height:40px;
+    line-height:40px;
+}
+.file-upload .file-select .file-select-name{
+    line-height:40px;
+    display:inline-block;
+    padding:0 10px;
+}
+.file-upload .file-select:hover{
+    border-color:#212529;
+    transition:all .2s ease-in-out;
+    -moz-transition:all .2s ease-in-out;
+    -webkit-transition:all .2s ease-in-out;
+    -o-transition:all .2s ease-in-out;
+}
+.file-upload .file-select:hover .file-select-button{
+    background:#212529;
+    color:#FFFFFF;
+    transition:all .2s ease-in-out;
+    -moz-transition:all .2s ease-in-out;
+    -webkit-transition:all .2s ease-in-out;
+    -o-transition:all .2s ease-in-out;
+}
+.file-upload.active .file-select{
+    border-color:#729d39;transition:all .2s ease-in-out;
+    -moz-transition:all .2s ease-in-out;
+    -webkit-transition:all .2s ease-in-out;
+    -o-transition:all .2s ease-in-out;
+}
+.file-upload.active .file-select .file-select-button{
+    background:#729d39;
+    color:#FFFFFF;
+    transition:all .2s ease-in-out;-moz-transition:all .2s ease-in-out;
+    -webkit-transition:all .2s ease-in-out;
+    -o-transition:all .2s ease-in-out;
+}
+.file-upload .file-select input[type=file]{
+    z-index:100;cursor:pointer;
+    position:absolute;
+    height:100%;
+    width:100%;
+    top:0;
+    left:0;
+    opacity:0;
+    filter:alpha(opacity=0);
+}
+.file-upload .file-select.file-select-disabled{
+    opacity:0.65;
+}
+.file-upload .file-select.file-select-disabled:hover{
+    cursor:default;
+    display:block;
+    border: 2px solid #729d39;
+    color: #212529;
+    cursor:pointer;
+    height:40px;
+    line-height:40px;
+    margin-top:5px;
+    text-align:left;
+    background:#FFFFFF;
+    overflow:hidden;
+    position:relative;
+}
+.file-upload .file-select.file-select-disabled:hover .file-select-button{
+    background:#729d39;
+    color:#666666;
+    padding:0 10px;
+    display:inline-block;
+    height:40px;
+    line-height:40px;
+}
+.file-upload .file-select.file-select-disabled:hover .file-select-name{
+    line-height:40px;
+    display:inline-block;
+    padding:0 10px;
+}
 
-  .btnupload {
-    border: 1px solid gray;
-    color: black;
-    background-color: white;
-    padding: 10px 20px;
-    border-radius: 15px;
-    font-size: 15px;
 
-  }
 
-  .upload-btn-wrapper input[type=file] {
-    font-size: 100px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0;
+/* check the password requirements*/
+ul, li {
+    margin:0;
+    padding:0;
+    list-style-type:none;
+}
+.invalid {
+    background:url(../img/cerrar.png) no-repeat 0 50%;
+    padding-left:22px;
+    line-height:24px;
+    color:#ec3f41;
+}
+.valid {
+    background:url(../img/cheque.png) no-repeat 0 50%;
+    padding-left:22px;
+    line-height:24px;
+    color:#3a7d34;
+}
+/*#password-require {
+    display:none;
+}
+#password-require {
+    position:absolute;
+    bottom:-75px;
+    bottom: -115px\9; /* IE Specific */
+    /*right:55px;
+    width:250px;
+    padding:15px;
+    background:#fefefe;
+    font-size:.875em;
+    border-radius:5px;
+    box-shadow:0 1px 3px #ccc;
+    border:1px solid #ddd;
+
+} */
+#password-require h5 {
+    margin:0 0 10px 0;
+    padding:0;
+    color:#36622b;
+    font-weight:normal;
+}
+
+/*#password-require::before {
+    content: "\25B2";
+    position:absolute;
+    top:-12px;
+    left:45%;
+    font-size:14px;
+    line-height:14px;
+    color:#ddd;
+    text-shadow:none;
+    display:block;
   }
