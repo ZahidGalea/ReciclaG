@@ -1,0 +1,72 @@
+{% extends 'app/base.html' %} {% load static %} {% block contenido %}
+
+    <!--
+    Form Section
+    -->
+
+    <div id="wrap">
+        <div id="main" class="container clear-top">
+
+            <div class="container contacto">
+                <form class="container">
+                    <div class="row justify-content-md-center">
+                        <div class="col">
+                            <h1 class="align-content-center">Cambio de clave</h1>
+                        </div>
+
+                    </div>
+                    <div class="mb-3">
+                        <label for="telefono" class="form-label">Teléfono</label>
+                        <input type="password" class="form-control" id="telefono" aria-describedby="emailHelp">
+                    </div>
+                    <div class="alert alert-danger" role="alert" id="msgErrorFono">
+                        <label class="form-label" id="txtErrorFono">Debe ingresar su número de teléfono
+                            registrado</label>
+                    </div>
+
+                    <div class="row align-content-end">
+                        <div class="col offset-lg-10 offset-md-9 offset-sm-8 offset-xl-10">
+                            <div class="btn btnGeneral">
+                                <a href="{% url 'recupclave' %}">Verificar</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!--
+    Form Section
+    -->
+
+{% endblock %}
+
+{% block page_scripts %}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //apaga etiquetas alert
+            $("#msgErrorFono").hide();
+
+            //valida envio de formulario
+            $("#verificar").click(function () {
+                var fono = $("#telefono").val();
+
+                if (fono.trim() <= 0) {
+                    $("#msgErrorFono").show();
+                    retorno = false;
+                } else {
+                    $("#msgErrorFono").hide();
+                }
+
+                return retorno;
+            });
+
+        });
+    </script>
+{% endblock %}

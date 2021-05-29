@@ -1,0 +1,339 @@
+{% extends 'app/base.html' %} {% load static %} {% block contenido %}
+
+    <!--
+    Form Section
+    -->
+
+    <div id="wrap">
+        <div id="main" class="container clear-top">
+            <div class="container contacto">
+                <form class="container">
+                    <div class="row justify-content-md-center">
+                        <div class="col">
+                            <h1>¡Modifica tu punto de reciclaje!</h1>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="comuna" class="form-label">Comuna</label>
+                        <input type="text" class="form-control" id="comuna">
+                    </div>
+                    <div class="alert alert-danger" role="alert" id="msgErrorComuna">
+                        <label class="form-label" id="txtErrorComuna">Debe ingresar una comuna</label>
+                    </div>
+                    <div class="mb-3">
+                        <label for="direccion" class="form-label">Dirección</label>
+                        <input type="text" class="form-control" id="direccion">
+                    </div>
+                    <div class="alert alert-danger" role="alert" id="msgErrorDireccion">
+                        <label class="form-label" id="txtErrorDireccion">Debe ingresar una dirección</label>
+                    </div>
+
+                    <div class="container horario">
+                        <label>Horario</label>
+                        <div class="row">
+                            <div class="col-sm">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input opcionHorario" type="radio" name="opcionHorario"
+                                           id="opcionHorario1"
+                                           value="1">
+                                    <label class="form-check-label" for="opcionHorario1">Habilitado siempre</label>
+                                </div>
+                            </div>
+                            <div class="col-sm pb-3">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input opcionHorario" type="radio" name="opcionHorario"
+                                           id="opcionHorario2"
+                                           value="2">
+                                    <label class="form-check-label" for="opcionHorario2">Habilitado en horarios
+                                        definidos</label>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="row HorarioBox" style="display:none">
+                            <div class="row diaHorario">
+                                <div class="col-12 col-sm-3 dia">
+                                    <div class="form-check form-check-inline diaForm">
+                                        <input class="form-check-input" type="checkbox" id="cbxLunes" value="lunes">
+                                        <label class="form-check-label" for="cbxLunes">Lunes</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-5 horaApertura">
+                                    <div class="form-check form-check-inline horaAperturaForm">
+                                        <label for="aperturaLunes">Horario de apertura:</label>
+                                        <input type="time" id="aperturaLunes" name="appt">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-4 horaCierre">
+                                    <div class="form-check form-check-inline horaCierreForm">
+                                        <label for="cierreLunes">Horario de cierre:</label>
+                                        <input type="time" id="cierreLunes" name="appt">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row diaHorario">
+                                <div class="col-12 col-sm-3 dia">
+                                    <div class="form-check form-check-inline diaForm">
+                                        <input class="form-check-input " type="checkbox" id="cbxMartes" value="martes">
+                                        <label class="form-check-label" for="cbxMartes">Martes</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-5 horaApertura">
+                                    <div class="form-check form-check-inline horaAperturaForm">
+                                        <label for="aperturaMartes">Horario de apertura:</label>
+                                        <input type="time" id="aperturaMartes" name="appt">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-4 horaCierre">
+                                    <div class="form-check form-check-inline horaCierreForm">
+                                        <label for="cierreMartes">Horario de cierre:</label>
+                                        <input type="time" id="cierreMartes" name="appt">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row diaHorario">
+                                <div class="col-12 col-sm-3 dia">
+                                    <div class="form-check form-check-inline diaForm">
+                                        <input class="form-check-input " type="checkbox" id="cbxMiercoles"
+                                               value="miercoles">
+                                        <label class="form-check-label" for="cbxMiercoles">Miércoles</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-5 horaApertura">
+                                    <div class="form-check form-check-inline horaAperturaForm">
+                                        <label for="aperturaMiercoles">Horario de apertura:</label>
+                                        <input type="time" id="aperturaMiercoles" name="appt">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-4 horaCierre">
+                                    <div class="form-check form-check-inline horaCierreForm">
+                                        <label for="cierreMiercoles">Horario de cierre:</label>
+                                        <input type="time" id="cierreMiercoles" name="appt">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row diaHorario">
+                                <div class="col-12 col-sm-3 dia">
+                                    <div class="form-check form-check-inline  diaForm">
+                                        <input class="form-check-input " type="checkbox" id="cbxJueves" value="jueves">
+                                        <label class="form-check-label" for="cbxJueves">Jueves</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-5 horaApertura">
+                                    <div class="form-check form-check-inline horaAperturaForm">
+                                        <label for="aperturaJueves">Horario de apertura:</label>
+                                        <input type="time" id="aperturaJueves" name="appt">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-4 horaCierre">
+                                    <div class="form-check form-check-inline horaCierreForm">
+                                        <label for="cierreJueves">Horario de cierre:</label>
+                                        <input type="time" id="cierreJueves" name="appt">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row diaHorario">
+                                <div class="col-12 col-sm-3 dia">
+                                    <div class="form-check form-check-inline diaForm">
+                                        <input class="form-check-input " type="checkbox" id="cbxViernes"
+                                               value="viernes">
+                                        <label class="form-check-label" for="cbxViernes">Viernes</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-5 horaApertura">
+                                    <div class="form-check form-check-inline horaAperturaForm">
+                                        <label for="aperturaViernes">Horario de apertura:</label>
+                                        <input type="time" id="aperturaViernes" name="appt">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-4 horaCierre">
+                                    <div class="form-check form-check-inline horaCierreForm">
+                                        <label for="cierreViernes">Horario de cierre:</label>
+                                        <input type="time" id="cierreViernes" name="appt">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row diaHorario">
+                                <div class="col-12 col-sm-3 dia">
+                                    <div class="form-check form-check-inline diaForm">
+                                        <input class="form-check-input " type="checkbox" id="cbxSabado" value="sabado">
+                                        <label class="form-check-label" for="cbxSabado">Sábado</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-5 horaApertura">
+                                    <div class="form-check form-check-inline horaAperturaForm">
+                                        <label for="aperturaSabado">Horario de apertura:</label>
+                                        <input type="time" id="aperturaSabado" name="appt">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-4 horaCierre">
+                                    <div class="form-check form-check-inline horaCierreForm">
+                                        <label for="cierreSabado">Horario de cierre:</label>
+                                        <input type="time" id="cierreSabado" name="appt">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row diaHorario">
+                                <div class="col-12 col-sm-3 dia">
+                                    <div class="form-check form-check-inline diaForm">
+                                        <input class="form-check-input" type="checkbox" id="cbxDomingo"
+                                               value="domingo">
+                                        <label class="form-check-label" for="cbxDomingo">Domingo</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-5 horaApertura">
+                                    <div class="form-check form-check-inline horaAperturaForm">
+                                        <label for="aperturaDomingo">Horario de apertura:</label>
+                                        <input type="time" id="aperturaDomingo" name="appt">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-4 horaCierre">
+                                    <div class="form-check form-check-inline horaCierreForm">
+                                        <label for="cierreDomingo">Horario de cierre:</label>
+                                        <input type="time" id="cierreDomingo" name="appt">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row alert alert-danger" role="alert" id="msgErrorHorario" style="display:none">
+                            <label class="form-label">Porfavor completa los horarios correctamente</label>
+                        </div>
+                        <div class="row alert alert-danger" role="alert" id="msgAperturaMayor" style="display:none">
+                            <label class="form-label">Tienes una fecha de apertura mayor a la de cierre. Revisa por
+                                favor</label>
+                        </div>
+                        <div class="row alert alert-danger" role="alert" id="msgSinOpcionElegida" style="display:none">
+                            <label class="form-label">Porfavor elige almenos una opción</label>
+                        </div>
+
+                    </div>
+                    <div class="mb-3 pt-3">
+                        <label>Materiales que recicla</label>
+                    </div>
+                    <div class="container">
+                        <div class="form-check form-check-inline formTipoReciclag">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                            <label class="form-check-label" for="inlineCheckbox1">Lata</label>
+                        </div>
+                        <div class="form-check form-check-inline formTipoReciclag">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                            <label class="form-check-label" for="inlineCheckbox2">Papel</label>
+                        </div>
+                        <div class="form-check form-check-inline formTipoReciclag">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+                            <label class="form-check-label" for="inlineCheckbox3">Cartón</label>
+                        </div>
+                        <div class="form-check form-check-inline formTipoReciclag">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option4">
+                            <label class="form-check-label" for="inlineCheckbox4">Plásticos</label>
+                        </div>
+                        <div class="form-check form-check-inline formTipoReciclag">
+                            <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option5">
+                            <label class="form-check-label" for="inlineCheckbox5">Vidrio</label>
+                        </div>
+                        <div class="alert alert-danger" role="alert" id="msgErrorMateriales" style="display: none">
+                            <label class="form-label">Porfavor ingresa almenos una opción</label>
+                        </div>
+
+                    </div>
+                    <div class="row fileUpload">
+                        <div class="file-upload col-12">
+                            <div class="file-select">
+                                <div class="file-select-button" id="fileName ">Carga una imagen</div>
+                                <div class="file-select-name" id="noFile">No has cargado una imagen</div>
+                                <input type="file" name="chooseFile" id="chooseFile">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row align-content-end">
+                        <div class="col offset-lg-10 offset-md-9 offset-sm-8 offset-xl-10">
+                            <div class="btnGeneral">
+                                <!-- <a href="#" id="inscribir">¡Modificar!</a> -->
+                                <button type="button" class="btn btnGeneral" id="inscribir"
+                                        data-target="#validationModal">Modificar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--
+    Form Section
+    -->
+
+    <!-- Modal-->
+    <div class="modal" id="validationModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Notificación</h4>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+
+                </div>
+                <div class="modal-body">
+                    <!-- <div class="alert alert-success" role="alert" id="#msgSuccessModal"> -->
+                    <label class="form-label" id="textModalSuccess"></label>
+                    <!-- </div> -->
+                    <!-- <div class="alert alert-danger" role="alert" id="#msgErrorModal"> -->
+                    <label class="form-label" id="textModalError"></label>
+                    <!-- </div> -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- End Modal -->
+
+{% endblock %}
+
+{% block page_scripts %}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //apaga etiquetas alert
+            $("#msgErrorComuna").hide();
+            $("#msgErrorDireccion").hide();
+
+            //valida envio de formulario
+            $("#inscribir").click(function () {
+                var retorno = true;
+                var comuna = $("#comuna").val();
+                var direccion = $("#direccion").val();
+
+                if (comuna.trim() <= 0) {
+                    $("#msgErrorComuna").show();
+                    $("#validationModal").modal('show');
+                    $("#textModalError").text("Hay errores en el formulario.");
+                    $("#textModalSuccess").hide();
+
+                    retorno = false;
+                } else {
+                    $("#msgErrorComuna").hide();
+                }
+
+                if (direccion.trim() <= 0) {
+                    $("#msgErrorDireccion").show();
+                    $("#validationModal").modal('show');
+                    $("#textModalError").text("Hay errores en el formulario.");
+                    $("#textModalSuccess").hide();
+
+                    retorno = false;
+                } else {
+                    $("#msgErrorDireccion").hide();
+                }
+
+                return retorno;
+
+
+            });
+
+        });
+    </script>
+{% endblock %}
