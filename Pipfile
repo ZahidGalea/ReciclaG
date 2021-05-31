@@ -5,8 +5,15 @@ name = "pypi"
 
 [packages]
 django = "*"
+cx_Oracle = "*"
+django-bootstrap-form = "*"
+django-crispy-forms = "*"
+django-tempus-dominus = "*"
+django-bootstrap-datepicker-plus = "*"
+Pillow = "*"
 
 [dev-packages]
 
 [requires]
 python_version = "3.8"
+

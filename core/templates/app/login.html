@@ -57,55 +57,5 @@
 {% endblock %}
 
 {% block page_scripts %}
-    <script type="text/javascript">
-        $(document).ready(function () {
 
-            //validando formato de correo
-            $("#emailValidation").hide();
-            $("#passwordValidation").hide();
-            $('#email').blur(function () {
-
-                var emailInput = $('#email').val();
-                var regExpEmail = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-                if (!regExpEmail.test(emailInput)) {
-                    $("#emailValidation").show();
-                } else {
-                    $("#emailValidation").hide();
-                }
-
-
-            });
-
-            $("#login").click(function () {
-                var isCorrect = true
-                var password = $("#password").val();
-                var emailInput = $('#email').val();
-
-                if (password.trim() <= 0) {
-                    $("#passwordValidation").show();
-                    isCorrect = false
-                } else {
-                    $("#passwordValidation").hide();
-
-                }
-
-                if (emailInput.trim() <= 0) {
-                    $("#emailValidation").show();
-                    isCorrect = false
-                } else {
-                    $("#emailValidation").hide();
-                }
-
-                if (isCorrect) {
-                    window.location.href = '{% url 'dashboard' %}'
-                }
-
-
-            })
-
-
-        });
-
-
-    </script>
 {% endblock %}
