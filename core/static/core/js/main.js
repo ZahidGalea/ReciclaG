@@ -8,60 +8,10 @@ function CheckTriggerHorarioBox() {
     }
 }
 
-function validarHorarioBox() {
-    // Si el día esta marcado, validar las horas
-    let atLeastOne;
-    atLeastOne = false
-    $diasHorario = document.querySelectorAll(".diaHorario")
-    $diasHorario.forEach(function (currentValue, currentIndex, listObj) {
-        $dia = $(currentValue).children('.dia');
-
-        $horaApertura = $(currentValue).children('.horaApertura')
-        $horaCierre = $(currentValue).children('.horaCierre')
-
-        $diaForm = $dia.children('.diaForm');
-        $input = $diaForm.children('.form-check-input')[0];
-
-
-        if ($input.checked) {
-            atLeastOne = true
-            $form = $horaApertura.children('.horaAperturaForm')
-            $horaAperturaValue = moment($form.children('input')[0].value, 'hh:mm')
-
-            $form = $horaCierre.children('.horaCierreForm')
-            $horaCierreValue = moment($form.children('input')[0].value, 'hh:mm')
-
-            if ($horaCierreValue._i === '' || $horaAperturaValue._i === '') {
-                // Must show alerta for field not completed
-
-                $("#msgErrorHorario")[0].style.display = "block"
-            } else {
-                $("#msgErrorHorario")[0].style.display = "none"
-            }
-
-
-            if ($horaAperturaValue > $horaCierreValue) {
-                // Must show alerta for Apertura < Cierre
-
-                $("#msgAperturaMayor")[0].style.display = "block"
-            } else {
-                $("#msgAperturaMayor")[0].style.display = "none"
-            }
-
-        }
-    });
-    if (atLeastOne === false) {
-
-        $("#msgSinOpcionElegida")[0].style.display = "block"
-    } else {
-        $("#msgSinOpcionElegida")[0].style.display = "none"
-    }
-
-}
 
 function validarFormTipoReciclag() {
     var selected = false
-    $formTipoRecilagList = document.querySelectorAll(".formTipoReciclag")
+    $formTipoRecilagList = document.querySelectorAll("#div_id_material_*")
     $formTipoRecilagList.forEach(function (currentValue,
                                            currentIndex,
                                            listObj) {
@@ -97,7 +47,6 @@ function mapAddress(mapElement, address) {
             });
 
 
-
         } else {
             alert("Geocode was not successful for the following reason: " + status);
 
@@ -110,22 +59,8 @@ function mapAddress(mapElement, address) {
 
 
 $(document).ready(function () {
-    console.log("Hello World -- Main executed")
 
-    // HORARIO
-    // Check if horario exists and load script
-    if ($('.horario')[0]) {
-        $("#opcionHorario1").trigger('click');
-        // CHECK IF HORARIO MUST BE TRIGGERED
-        $(".opcionHorario").click(CheckTriggerHorarioBox);
-    }
-
-    // ON INSCRIBIR O MODIFICAR PUNTO ............
-    $("#inscribir").click(function () {
-        //  Valida el HorarioBox
-        if ($("#opcionHorario2")[0].checked) {
-            validarHorarioBox()
-        }
+    $("#submit-id-submit").click(function () {
         // Valida los tipo de punto de reciclaG
         validarFormTipoReciclag()
     });
@@ -150,15 +85,14 @@ $(document).ready(function () {
             $lat = results[0].geometry.location.lat()
             $lng = results[0].geometry.location.lng()
 
-            jQuery.get('https://api.openweathermap.org/data/2.5/weather?lat='+$lat+'&lon='+$lng+'&exclude=hourly,daily&appid=c4cff409a04c1a3b55349f77cd26d0dd&lang=sp&units=metric',
-                function(data) {
-                    $temperaturePunto[0].innerHTML = "Temperatura: "+data.main.temp+" grados - "+data.weather[0].description
+            jQuery.get('https://api.openweathermap.org/data/2.5/weather?lat=' + $lat + '&lon=' + $lng + '&exclude=hourly,daily&appid=c4cff409a04c1a3b55349f77cd26d0dd&lang=sp&units=metric',
+                function (data) {
+                    $temperaturePunto[0].innerHTML = "Temperatura: " + data.main.temp + " grados - " + data.weather[0].description
 
                 })
 
 
         });
-
 
 
     });
