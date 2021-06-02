@@ -11,8 +11,6 @@
                     <div class="col">
                         <h1>¡Inscribe tu punto de reciclaje!</h1>
                     </div>
-
-
                 </div>
                 <p>{{ form.non_field_errors }}</p>
                 <div class="row">
@@ -21,7 +19,6 @@
                             <div class="form-group">
                                 {% csrf_token %}
                                 {% crispy form form.helper %}
-
                             </div>
 
                         </form>

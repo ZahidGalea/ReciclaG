@@ -32,7 +32,7 @@
 
             {% for dato in puntos %}
 
-                <div class="card mb-3">
+                <div class="card row">
                     <div class="row no-gutters bg-light punto_content">
                         <div class="col-md-5 punto_img">
                             {% if dato.ruta_imagen %}
@@ -48,6 +48,14 @@
                                 <p class="card-text">Comuna: {{ dato.comuna }}</p>
                                 <p class="card-text">Dirección: <span
                                         class="direccionPuntoReciclag">{{ dato.direccion }}</span>
+                                </p>
+                                <p class="card-text">
+                                    Qué se recicla:
+                                    {% if dato.material_lata == 1 %}Lata -{% endif %}
+                                    {% if dato.material_papel == 1 %}Papel -{% endif %}
+                                    {% if dato.material_carton == 1 %}Cartón -{% endif %}
+                                    {% if dato.material_plastico == 1 %}Plástico -{% endif %}
+                                    {% if dato.material_vidrio == 1 %}Vidrio{% endif %}
                                 </p>
 
                                 <p class="card-text">Horario:</p>
@@ -101,14 +109,7 @@
 
 
                                 {% endif %}
-                                <p class="card-text">
-                                    Qué se recicla:
-                                    {% if dato.material_lata == 1 %}Lata -{% endif %}
-                                    {% if dato.material_papel == 1 %}Papel -{% endif %}
-                                    {% if dato.material_carton == 1 %}Cartón -{% endif %}
-                                    {% if dato.material_plastico == 1 %}Plástico -{% endif %}
-                                    {% if dato.material_vidrio == 1 %}Vidrio{% endif %}
-                                </p>
+
                                 <p class="card-text">Clima: <span class="temperaturaPunto"></span></p>
                             </div>
                         </div>

@@ -10,7 +10,10 @@ django-bootstrap-form = "*"
 django-crispy-forms = "*"
 django-tempus-dominus = "*"
 django-bootstrap-datepicker-plus = "*"
+phonenumbers = "*"
+django-phonenumber-field = "*"
 Pillow = "*"
+Babel = "*"
 
 [dev-packages]
 

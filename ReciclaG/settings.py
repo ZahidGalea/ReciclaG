@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'bootstrapform',
     'crispy_forms',
     'tempus_dominus',
-    'bootstrap_datepicker_plus'
+    'bootstrap_datepicker_plus',
+    'phonenumber_field'
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

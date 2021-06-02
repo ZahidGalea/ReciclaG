@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from . import forms
 from . import models
 
@@ -18,12 +18,14 @@ def crearusuario(request):
         if formulario.is_valid:
             formulario.save()
             context['mensaje'] = 'Usuario guardado correctamente'
+            return redirect(to="dashboard")
     return render(request, 'app/crearusuario.html', context)
 
 
 def dashboard(request):
+    puntos = models.PuntoReciclag.objects.all()
     context = {
-        "puntos": models.PuntoReciclag.objects.all()
+        "puntos": puntos
     }
     return render(request, 'app/dashboard.html', context=context)
 
@@ -51,6 +53,8 @@ def inscribir(request):
         else:
             context['mensaje'] = 'El punto no ha podido ser guardado correctamente'
 
+        return redirect(to="dashboard")
+
     return render(request, 'app/inscribir.html', context=context)
 
 
@@ -59,11 +63,31 @@ def login(request):
         "form": forms.LoginForm()
     }
 
+    return redirect(to="dashboard")
+
     return render(request, 'app/login.html', context=context)
 
 
-def modificar(request):
+def modificar(request, id):
+    punto = models.PuntoReciclag.objects.get(id=id)
     context = {
-        "form": forms.ModificarPunto()
+        "form": forms.ModificarPunto(instance=punto)
     }
+
+    if request.method == 'POST':
+        formulario = forms.ModificarPunto(request.POST, request.FILES or None,
+                                          instance=punto)
+        if formulario.is_valid():
+            formulario.save()
+            context['mensaje'] = 'Punto guardados correctamente'
+        else:
+            context['mensaje'] = 'El punto no ha podido ser guardado correctamente'
+
+        return redirect(to="dashboard")
     return render(request, 'app/modificar.html', context=context)
+
+
+def borrar(request, id):
+    punto = models.PuntoReciclag.objects.get(id=id)
+    punto.delete()
+    return redirect(to="dashboard")

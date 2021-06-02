@@ -1,11 +1,12 @@
 from django.db import models
+from phonenumber_field.modelfields import PhoneNumberField
 
 
 class Usuario(models.Model):
     id_usuario = models.BigAutoField(primary_key=True, unique=True, auto_created=True,
                                      verbose_name='Id del usuario creado')
     organizacion = models.TextField(verbose_name='Nombre de la organización')
-    telefono = models.IntegerField(verbose_name='Número telefónico de la persona')
+    telefono = PhoneNumberField()
     email = models.TextField(verbose_name='Correo electrónico de la persona')
     clave = models.TextField(verbose_name='Clave de login a la plataforma')
 
@@ -39,7 +40,8 @@ class PuntoReciclag(models.Model):
     horario_cierr_sabado = models.TimeField(null=True, verbose_name='Cierre Sabado')
     horario_apert_domingo = models.TimeField(null=True, verbose_name='Apertura Domingo')
     horario_cierr_domingo = models.TimeField(null=True, verbose_name='Cierre Domingo')
-    #id_usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+
+    # id_usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.titulo

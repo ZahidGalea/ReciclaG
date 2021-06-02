@@ -26,5 +26,6 @@ urlpatterns = [
     path('iniciativa', views.iniciativa, name="iniciativa"),
     path('inscribir', views.inscribir, name="inscribir"),
     path('login', views.login, name="login"),
-    path('modificar', views.modificar, name="modificar"),
+    path('modificar/<id>', views.modificar, name="modificar"),
+    path('borrar/<id>', views.borrar, name="borrar"),
 ]

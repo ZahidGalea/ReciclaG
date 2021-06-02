@@ -2,6 +2,8 @@ from django import forms
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 from bootstrap_datepicker_plus import TimePickerInput
+from phonenumber_field.formfields import PhoneNumberField
+from phonenumber_field.widgets import PhoneNumberPrefixWidget
 
 from . import models
 
@@ -10,7 +12,7 @@ ENABLED_HOURS = [value for value in range(0, 24)]
 
 class CrearUsuarioForm(forms.ModelForm):
     organizacion = forms.CharField(label="Organización")
-    telefono = forms.IntegerField()
+    telefono = PhoneNumberField(label='Teléfono', widget=PhoneNumberPrefixWidget())
     email = forms.CharField(label='Email', widget=forms.EmailInput)
     clave = forms.CharField(max_length=32, widget=forms.PasswordInput)
 
@@ -134,7 +136,7 @@ class LoginForm(forms.ModelForm):
         self.helper = FormHelper()
         self.helper.form_id = 'login'
         self.helper.form_class = 'blueForms'
-        self.helper.form_method = 'post'
+        self.helper.form_method = 'get'
         self.helper.form_action = 'dashboard'
         self.helper.add_input(Submit('submit', 'Loguearse'))
 
@@ -190,7 +192,7 @@ class ModificarPunto(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(ModificarPunto, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
-        self.helper.form_id = 'inscribirPunto'
+        self.helper.form_id = 'modificarPunto'
         self.helper.form_class = 'blueForms'
         self.helper.form_method = 'post'
         self.helper.form_action = 'dashboard'
