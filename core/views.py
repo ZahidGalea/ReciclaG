@@ -1,3 +1,6 @@
+from django.contrib.auth import authenticate, login as lg
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from . import forms
 from . import models
@@ -10,20 +13,29 @@ def home(request):
 
 def crearusuario(request):
     context = {
-        "form": forms.CrearUsuarioForm()
+        "form": forms.UserCreationFormM()
     }
 
     if request.method == 'POST':
-        formulario = forms.CrearUsuarioForm(request.POST)
-        if formulario.is_valid:
+        formulario = forms.UserCreationFormM(request.POST)
+        if formulario.is_valid():
             formulario.save()
             context['mensaje'] = 'Usuario guardado correctamente'
+            # Autenticación instantánea
+            new_user = authenticate(username=formulario.cleaned_data['username'],
+                                    password=formulario.cleaned_data['password1'],
+                                    )
+            lg(request, new_user)
             return redirect(to="dashboard")
+        else:
+            context['mensaje'] = 'Usuario no guardado correctamente'
     return render(request, 'app/crearusuario.html', context)
 
 
+@login_required
 def dashboard(request):
-    puntos = models.PuntoReciclag.objects.all()
+    user = request.user
+    puntos = models.PuntoReciclag.objects.filter(id_usuario=user)
     context = {
         "puntos": puntos
     }
@@ -40,6 +52,7 @@ def iniciativa(request):
     return render(request, 'app/iniciativa.html', context=context)
 
 
+@login_required
 def inscribir(request):
     context = {
         "form": forms.InscribirPunto()
@@ -47,6 +60,8 @@ def inscribir(request):
 
     if request.method == 'POST':
         formulario = forms.InscribirPunto(request.POST, request.FILES or None)
+        fs = formulario.save(commit=False)
+        fs.id_usuario = request.user
         if formulario.is_valid():
             formulario.save()
             context['mensaje'] = 'Punto guardados correctamente'
@@ -62,12 +77,18 @@ def login(request):
     context = {
         "form": forms.LoginForm()
     }
-
-    return redirect(to="dashboard")
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            lg(request, user)
+            return redirect(to='dashboard')
 
     return render(request, 'app/login.html', context=context)
 
 
+@login_required
 def modificar(request, id):
     punto = models.PuntoReciclag.objects.get(id=id)
     context = {

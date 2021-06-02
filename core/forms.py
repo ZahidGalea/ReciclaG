@@ -2,32 +2,34 @@ from django import forms
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 from bootstrap_datepicker_plus import TimePickerInput
-from phonenumber_field.formfields import PhoneNumberField
-from phonenumber_field.widgets import PhoneNumberPrefixWidget
+from django.contrib.auth.forms import AuthenticationForm
+
+from django import forms
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 
 from . import models
 
 ENABLED_HOURS = [value for value in range(0, 24)]
 
-
-class CrearUsuarioForm(forms.ModelForm):
-    organizacion = forms.CharField(label="Organización")
-    telefono = PhoneNumberField(label='Teléfono', widget=PhoneNumberPrefixWidget())
-    email = forms.CharField(label='Email', widget=forms.EmailInput)
-    clave = forms.CharField(max_length=32, widget=forms.PasswordInput)
+class UserCreationFormM(UserCreationForm):
+    first_name = forms.CharField()
+    last_name = forms.CharField()
+    email = forms.EmailField()
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
-        self.helper.form_id = 'crearUsuario'
+        self.helper.form_id = 'register'
         self.helper.form_class = 'blueForms'
-        self.helper.form_method = 'post'
+        self.helper.form_method = 'get'
         self.helper.form_action = 'dashboard'
-        self.helper.add_input(Submit('submit', 'Crear Usuario'))
+        self.helper.add_input(Submit('submit', 'Registrate'))
 
     class Meta:
-        model = models.Usuario
-        fields = ('organizacion', 'telefono', 'email', 'clave')
+        model = User
+        fields = ('first_name','last_name', 'username', 'email', 'password1' ,'password2' )
+
 
 
 class InscribirPunto(forms.ModelForm):
@@ -127,10 +129,7 @@ class InscribirPunto(forms.ModelForm):
                        'horario_cierr_domingo']
 
 
-class LoginForm(forms.ModelForm):
-    email = forms.CharField(label='Email', widget=forms.EmailInput)
-    clave = forms.CharField(max_length=32, widget=forms.PasswordInput)
-
+class LoginForm(AuthenticationForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
@@ -141,8 +140,8 @@ class LoginForm(forms.ModelForm):
         self.helper.add_input(Submit('submit', 'Loguearse'))
 
     class Meta:
-        model = models.Usuario
-        fields = ('email', 'clave')
+        model = models.User
+        fields = ('username', 'password')
 
 
 class ModificarPunto(forms.ModelForm):

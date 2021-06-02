@@ -9,26 +9,6 @@
                     <h1>Iniciativas</h1>
                 </div>
             </div>
-            <div class="card mb-3">
-                <div class="row no-gutters bg-light punto_content">
-                    <div class="col-md-5 punto_img">
-                        <img src="{% static 'core/img/iniciativa_providencia.jpeg' %}" class=" card-img" alt="...">
-                    </div>
-                    <div class="col-md-7 punto_information">
-                        <div class="card-body">
-                            <h5 class="card-title">Providencia</h5>
-                            <p class="card-text">Organización: Municipalidad de providencia</p>
-                            <p class="card-text">Correo de contacto:ambientalprov@gmail.cam</p>
-                            <p class="card-text">Comuna: Providencia</p>
-                            <p class="card-text">Dirección: <span class="direccionPuntoReciclag">Carmen 390</span></p>
-                            <p class="card-text">Horario: Punto disponible en todo horario</p>
-                            <p class="card-text">Qué recicla: Lata, plástico, papel, vidrio, tetra pack</p>
-                            <p class="card-text">Clima: <span class="temperaturaPunto"></span></p>
-                        </div>
-                    </div>
-                    <div class="map_canvas"></div>
-                </div>
-            </div>
 
             {% for dato in puntos %}
 
@@ -42,8 +22,6 @@
                         <div class="col-md-7 punto_information">
                             <div class="card-body">
                                 <h5 class="card-title">{{ dato.titulo }}</h5>
-                                <p class="card-text">Informador: Municipalidad de providencia</p>
-                                <p class="card-text">Correo del informador:ambientalprov@gmail.cam</p>
                                 <p class="card-text">Region: {{ dato.region }}</p>
                                 <p class="card-text">Comuna: {{ dato.comuna }}</p>
                                 <p class="card-text">Dirección: <span
