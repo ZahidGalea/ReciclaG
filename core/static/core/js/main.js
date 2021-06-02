@@ -74,13 +74,16 @@ $(document).ready(function () {
         $cardText = $puntoInformationBody.children('.card-text')
 
         $direccionPuntoRerciclag = $cardText.children('.direccionPuntoReciclag').text()
+        $direccionPuntoRerciclagReg = $cardText.children('.direccionPuntoReciclagReg').text()
+        $direccionPuntoRerciclagCom = $cardText.children('.direccionPuntoReciclagCom').text()
         $temperaturePunto = $cardText.children('.temperaturaPunto')
 
-        mapAddress($(currentValue), $direccionPuntoRerciclag.concat(" Chile"));
+        $fulladdress = $direccionPuntoRerciclag.concat(" ", $direccionPuntoRerciclagCom, " ", $direccionPuntoRerciclagReg, " Chile")
+        mapAddress($(currentValue), $fulladdress);
 
         var geocoder = new google.maps.Geocoder();
 
-        geocoder.geocode({'address': $direccionPuntoRerciclag}, function (results, status, document) {
+        geocoder.geocode({'address': $fulladdress}, function (results, status, document) {
 
             $lat = results[0].geometry.location.lat()
             $lng = results[0].geometry.location.lng()
