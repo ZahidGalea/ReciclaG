@@ -1,0 +1,22 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+cx_Oracle = "*"
+django-bootstrap-form = "*"
+django-crispy-forms = "*"
+django-tempus-dominus = "*"
+django-bootstrap-datepicker-plus = "*"
+phonenumbers = "*"
+django-phonenumber-field = "*"
+Pillow = "*"
+Babel = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"
+

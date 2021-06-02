@@ -1,0 +1,103 @@
+{% extends 'app/base.html' %} {% load static %} {% block contenido %}
+
+
+    <div id="wrap">
+        <div id="main" class="container clear-top">
+
+            <div class="container introduction">
+                <div class="row align-items-center justify-content-center">
+                    <h1>Iniciativas</h1>
+                </div>
+            </div>
+
+            {% for dato in puntos %}
+
+                <div class="card row">
+                    <div class="row no-gutters bg-light punto_content">
+                        <div class="col-md-5 punto_img">
+                            {% if dato.ruta_imagen %}
+                                <img src="{{ dato.ruta_imagen.url }}" class="card-img" alt="...">
+                            {% endif %}
+                        </div>
+                        <div class="col-md-7 punto_information">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ dato.titulo }}</h5>
+                                <p class="card-text">Region: <span class="direccionPuntoReciclagReg">{{ dato.region }}</span></p>
+                                <p class="card-text">Comuna: <span class="direccionPuntoReciclagCom">{{ dato.comuna }}</span></p>
+                                <p class="card-text">Dirección: <span class="direccionPuntoReciclag">{{ dato.direccion }}</span>
+                                </p>
+                                <p class="card-text">
+                                    Qué se recicla:
+                                    {% if dato.material_lata == 1 %}Lata -{% endif %}
+                                    {% if dato.material_papel == 1 %}Papel -{% endif %}
+                                    {% if dato.material_carton == 1 %}Cartón -{% endif %}
+                                    {% if dato.material_plastico == 1 %}Plástico -{% endif %}
+                                    {% if dato.material_vidrio == 1 %}Vidrio{% endif %}
+                                </p>
+
+                                <p class="card-text">Horario:</p>
+                                {% if dato.horario_oficina == 1 %}
+                                    <p class="card-text">Punto disponible en horario de oficina.</p>
+                                {% endif %}
+
+                                {% if dato.horario_oficina == 0 %}
+                                    <table border="1" class="table">
+                                        <tr>
+                                            <td>Día</td>
+                                            <td>Apertura</td>
+                                            <td>Cierre</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lunes</td>
+                                            <td>{{ dato.horario_apert_lunes }}</td>
+                                            <td>{{ dato.horario_cierr_lunes }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Martes</td>
+                                            <td>{{ dato.horario_apert_martes }}</td>
+                                            <td>{{ dato.horario_cierr_martes }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Miercoles</td>
+                                            <td>{{ dato.horario_apert_miercoles }}</td>
+                                            <td>{{ dato.horario_cierr_miercoles }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Jueves</td>
+                                            <td>{{ dato.horario_apert_jueves }}</td>
+                                            <td>{{ dato.horario_cierr_jueves }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Viernes</td>
+                                            <td>{{ dato.horario_apert_viernes }}</td>
+                                            <td>{{ dato.horario_cierr_viernes }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sábado</td>
+                                            <td>{{ dato.horario_apert_sabado }}</td>
+                                            <td>{{ dato.horario_cierr_sabado }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Domingo</td>
+                                            <td>{{ dato.horario_apert_domingo }}</td>
+                                            <td>{{ dato.horario_cierr_domingo }}</td>
+                                        </tr>
+                                    </table>
+
+
+                                {% endif %}
+
+                                <p class="card-text">Clima: <span class="temperaturaPunto"></span></p>
+                            </div>
+                        </div>
+                        <div class="map_canvas"></div>
+                    </div>
+                </div>
+
+            {% endfor %}
+
+
+        </div>
+    </div>
+
+{% endblock %}

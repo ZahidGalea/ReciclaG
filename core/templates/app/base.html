@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+{% load static %}
+
+<head>
+    <meta charset="utf-8" name='viewport' content='width=device-width, initial-scale=1'>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&family=New+Tegomin&family=Roboto&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="shortcut icon" href="{% static 'core/img/logo.png' %}">
+    <title>ReciclaG</title>
+    <link rel="stylesheet" href="{% static 'core/css/main.css' %}">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+            integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+            crossorigin="anonymous"></script>
+
+    {{ form.media }}
+
+</head>
+
+<body>
+<!--
+Navbar Section
+-->
+<div class="fixed-top-menu">
+    <div class="collapse" id="navbarToggleExternalContent">
+        <div class="navbarMenu">
+
+            <li class="optionsMenu">
+                <a href="{% url 'homepage' %}">Inicio</a>
+            </li>
+            <li class="optionsMenu">
+                <a href="{% url 'iniciativa' %}">Iniciativas</a>
+            </li>
+            <li class="optionsMenu">
+                <a href="{% url 'login' %}">Login</a>
+            </li>
+
+        </div>
+    </div>
+
+    <nav class="navbarTop navbar-dark navbarMenu">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarToggleExternalContent"
+                aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <img class="logo" alt="logo" src="{% static 'core/img/logo.png' %}"/>
+    </nav>
+</div>
+
+<!--
+Ends - Navbar Section
+-->
+
+
+<div class="container">
+    {% block contenido %} {% endblock %}
+</div>
+
+
+<!--
+Footer Section
+-->
+
+<footer class="bg-primary text-white text-center text-lg-start footer">
+    <!-- Grid container -->
+    <div class="container p-4">
+        <!--Grid row-->
+        <div class="row">
+            <!--Grid column-->
+
+            <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                <img class="logo" alt="logo" src="{% static 'core/img/logo.png' %}"/>
+            </div>
+
+            <div class="col-lg-4 col-md-4 mb-4 mb-md-0">
+                <h5 class="text-uppercase">ReciclaG</h5>
+
+
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-lg-6 col-md-4 mb-4 mb-md-0">
+
+                <ul class="list-unstyled mb-0">
+                    <li>
+                        <a href="{% url 'homepage' %}">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'iniciativa' %}">Iniciativas</a>
+                    </li>
+                </ul>
+            </div>
+            <!--Grid column-->
+        </div>
+        <!--Grid row-->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3 copyright">
+        © 2021 Copyright
+
+    </div>
+    <!-- Copyright -->
+</footer>
+
+<!--
+Ends Footer Section
+-->
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAL8b92ab1lGMXSS7hewAHMOHmld0MmDwg"></script>
+<script type="application/javascript" src="{% static "core/js/main.js" %}"></script>
+<script type="application/javascript" src="{% static "core/js/validaciones.js" %}"></script>
+
+{% block page_scripts %} {% endblock %}
+
+
+</body>

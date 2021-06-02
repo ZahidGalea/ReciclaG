@@ -1,0 +1,47 @@
+{% extends 'app/base.html' %} {% load static %} {% load crispy_forms_tags %}{% block contenido %}
+    <!-- Login container -->
+    <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
+        <div class="container">
+            <div class="card login-card">
+                <div class="row no-gutters">
+                    <div class="col-md-5">
+                        <!-- login-card-img -->
+                        <img src="{% static 'core/img/loginImage.jpg' %}" alt="login" class="imgCard">
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card-body">
+                            <div class="brand-wrapper">
+                                <a href="{% url 'homepage' %}"><img src="{% static 'core/img/logo.png' %}" alt="logo"
+                                                                    class="logo logoLogin"></a>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <form method="POST" action="" id="formulario-login" >
+                                        <div class="form-group">
+                                            {% csrf_token %}
+                                            {% crispy form form.helper %}
+
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+
+                            <p class="login-card-footer-text">No tienes una cuenta? <a href="{% url 'crearusuario' %}"
+                                                                                       class="text-reset">Registrate
+                                aquí</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+
+{% endblock %}
+
+{% block page_scripts %}
+
+{% endblock %}
