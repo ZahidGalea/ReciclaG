@@ -65,6 +65,7 @@ $(document).ready(function () {
         validarFormTipoReciclag()
     });
 
+    var geocoder = new google.maps.Geocoder();
     // INICIATIVAS PAGE API CONSUMPTION
     $puntoContent = document.querySelectorAll(".punto_content")
     $puntoContent.forEach(function (currentValue, currentIndex, listObj) {
@@ -81,8 +82,6 @@ $(document).ready(function () {
         $fulladdress = $direccionPuntoRerciclag.concat(" ", $direccionPuntoRerciclagCom, " ", $direccionPuntoRerciclagReg, " Chile")
         mapAddress($(currentValue), $fulladdress);
 
-        var geocoder = new google.maps.Geocoder();
-
         geocoder.geocode({'address': $fulladdress}, function (results, status, document) {
 
             $lat = results[0].geometry.location.lat()
@@ -90,7 +89,7 @@ $(document).ready(function () {
 
             jQuery.get('https://api.openweathermap.org/data/2.5/weather?lat=' + $lat + '&lon=' + $lng + '&exclude=hourly,daily&appid=c4cff409a04c1a3b55349f77cd26d0dd&lang=sp&units=metric',
                 function (data) {
-                    $temperaturePunto[0].innerHTML = "Temperatura: " + data.main.temp + " grados - " + data.weather[0].description
+                    $temperaturePunto[0].innerHTML = data.main.temp + " grados - " + data.weather[0].description
 
                 })
 
