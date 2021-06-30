@@ -3,6 +3,8 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from rest_framework.authtoken.models import Token
 from rest_framework import status
+from rest_framework.response import Response
+
 from . import forms
 from . import models
 
@@ -47,7 +49,7 @@ def dashboard(request):
 def administracion(request):
     user = request.user
     if user.username != 'admin':
-        return status.HTTP_401_UNAUTHORIZED
+        return redirect(to="dashboard")
     # crear o recuperar un token
     token, created = Token.objects.get_or_create(user=user)
 
