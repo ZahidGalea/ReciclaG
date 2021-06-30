@@ -1,14 +1,17 @@
-# Página de reciclaje y sus diferentes puntos
+# ReciclaG
 
 
------ 
+ReciclaG es una página web que permite acceder de forma centralizada a información referente a puntos de reciclaje de diferentes materiales dentro de la región metropolitana.
 
-Solemne 1 - Front-End Development.
+#### **Cómo funciona**:
+Quien posea uno o más puntos de reciclage puede registrarse como usuario y posteriormente crear sus puntos de reciclaje.
+El lector con sólo acceder a la página, verá todos los puntos registrados, junto con información referente a sus horarios, ubicación y materiales que recicla.
 
-#TO-DO
 
--- Terminar Forms de Modificar y Borrar
--- Validaciónes y CSS + Javascript
+#### **Consideraciones**:
+La página web considera la implementación de una base de datos Oracle.
 
-(Deseado)
--- Usuario en registro y dashboard
+
+* Catalina Campusano
+* Zahid Galea
+* Paulette Kohler
