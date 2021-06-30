@@ -41,7 +41,10 @@ INSTALLED_APPS = [
     'crispy_forms',
     'tempus_dominus',
     'bootstrap_datepicker_plus',
-    'phonenumber_field'
+    'phonenumber_field',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'rest_reciclag'
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -55,6 +58,12 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES':[
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
 
 ROOT_URLCONF = 'ReciclaG.urls'
 

@@ -12,10 +12,11 @@ from . import models
 
 ENABLED_HOURS = [value for value in range(0, 24)]
 
+
 class UserCreationFormM(UserCreationForm):
-    first_name = forms.CharField()
-    last_name = forms.CharField()
-    email = forms.EmailField()
+    first_name = forms.CharField(label='Primer Nombre')
+    last_name = forms.CharField(label='Apellido')
+    email = forms.EmailField(label='Correo Electrónico')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -26,10 +27,13 @@ class UserCreationFormM(UserCreationForm):
         self.helper.form_action = 'dashboard'
         self.helper.add_input(Submit('submit', 'Registrate'))
 
+        self.fields['username'].label = "Nombre de Usuario"
+        self.fields['password1'].label = "Contraseña"
+        self.fields['password2'].label = "Confirma Contraseña"
+
     class Meta:
         model = User
-        fields = ('first_name','last_name', 'username', 'email', 'password1' ,'password2' )
-
+        fields = ('first_name', 'last_name', 'username', 'email', 'password1', 'password2')
 
 
 class InscribirPunto(forms.ModelForm):
@@ -138,6 +142,9 @@ class LoginForm(AuthenticationForm):
         self.helper.form_method = 'get'
         self.helper.form_action = 'dashboard'
         self.helper.add_input(Submit('submit', 'Loguearse'))
+
+        self.fields['username'].label = "Nombre de Usuario"
+        self.fields['password'].label = "Contraseña"
 
     class Meta:
         model = models.User

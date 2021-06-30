@@ -1,7 +1,8 @@
 from django.contrib.auth import authenticate, login as lg
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
+from rest_framework.authtoken.models import Token
+from rest_framework import status
 from . import forms
 from . import models
 
@@ -42,6 +43,22 @@ def dashboard(request):
     return render(request, 'app/dashboard.html', context=context)
 
 
+@login_required
+def administracion(request):
+    user = request.user
+    if user.username != 'admin':
+        return status.HTTP_401_UNAUTHORIZED
+    # crear o recuperar un token
+    token, created = Token.objects.get_or_create(user=user)
+
+    puntos = models.PuntoReciclag.objects.all()
+    context = {
+        "puntos": puntos,
+        "user_token": token
+    }
+    return render(request, 'app/administracion.html', context=context)
+
+
 def iniciativa(request):
     puntos = models.PuntoReciclag.objects.all()
 
@@ -67,6 +84,8 @@ def inscribir(request):
             context['mensaje'] = 'Punto guardados correctamente'
         else:
             context['mensaje'] = 'El punto no ha podido ser guardado correctamente'
+        if request.user.username == 'admin':
+            return redirect(to='administracion')
 
         return redirect(to="dashboard")
 
@@ -83,6 +102,8 @@ def login(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             lg(request, user)
+            if request.user.username == 'admin':
+                return redirect(to='administracion')
             return redirect(to='dashboard')
 
     return render(request, 'app/login.html', context=context)
@@ -104,11 +125,16 @@ def modificar(request, id):
         else:
             context['mensaje'] = 'El punto no ha podido ser guardado correctamente'
 
+        if request.user.username == 'admin':
+            return redirect(to='administracion')
         return redirect(to="dashboard")
     return render(request, 'app/modificar.html', context=context)
 
 
+@login_required
 def borrar(request, id):
     punto = models.PuntoReciclag.objects.get(id=id)
     punto.delete()
+    if request.user.username == 'admin':
+        return redirect(to='administracion')
     return redirect(to="dashboard")

@@ -1,0 +1,109 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block contenido %}
+
+    <!-- Botones de panel -->
+
+    <div class="container">
+        <div class="row justify-content-end align-content-end" style="padding-top: 10px">
+            <div class="offset-md-3">
+                <button type="submit" class="btn btnGeneral"><a href="{% url 'inscribir' %}">Crear nuevo punto.</a>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- título de panel -->
+    <div class="containerTitlePanel row">
+        <h1>Panel de Administración</h1>
+    </div>
+
+    <div class="container" id="administracion_puntos">
+
+    </div>
+
+
+
+
+{% endblock %}
+
+{% block page_scripts %}
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: "{% url 'get_puntos' %}",
+                type: 'GET',
+                // Fetch the stored token from localStorage and set in the header
+                headers: {
+                    "Authorization": 'Token {{ user_token }}'
+                },
+                success: function (data) {
+                    data.forEach(function (punto) {
+                        let material_lata = '';
+                        let material_papel = '';
+                        let material_carton = '';
+                        let material_plastico = '';
+                        let material_vidrio = '';
+                        if (punto.material_lata === true) {
+                            material_lata = 'Lata'
+                        }
+                        if (punto.material_papel === true) {
+                            material_papel = 'Papel'
+                        }
+                        if (punto.material_carton === true) {
+                            material_carton = 'Cartón'
+                        }
+                        if (punto.material_plastico === true) {
+                            material_plastico = 'Plastico'
+                        }
+                        if (punto.material_vidrio === true) {
+                            material_vidrio = 'Vidrio'
+                        }
+
+                        let modf_url = "{% url 'modificar' 1234 %}".replace(/1234/, punto.id.toString());
+                        let borrar_url = "{% url 'borrar' 1234 %}".replace(/1234/, punto.id.toString());
+
+                        console.log(punto)
+                        let div = document.createElement('div');
+                        div.className = 'card row';
+                        div.innerHTML = `
+                                <div class="row no-gutters bg-light ">
+                                    <div class="col-10 punto_information">
+                                        <div class="card-body">
+                                            <h5 class="card-title">${punto.titulo}</h5>
+                                            <p class="card-text">ID Usuario: ${punto.id_usuario}</p>
+                                            <p class="card-text">ID Punto: ${punto.id}</p>
+                                            <p class="card-text">Region: ${punto.region}</p>
+                                            <p class="card-text">Comuna: ${punto.comuna}</p>
+                                            <p class="card-text">Dirección: <span class="direccionPuntoReciclag"> ${punto.direccion}</span>
+                                            </p>
+                                            <p class="card-text">
+                                                Qué se recicla:
+                                                ${material_lata} ${material_papel} ${material_carton} ${material_plastico} ${material_vidrio}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container">
+                                <div class="row">
+                                    <button type="submit" class="btnCard"><a
+                                            href="${modf_url}">Modificar</a></button>
+                                    <button type="submit" class="btnCard"><a
+                                            href="${borrar_url}">Borrar</a></button>
+                                </div>
+                            `;
+
+                        document.getElementById('administracion_puntos').appendChild(div)
+
+                    });
+
+                }
+            });
+
+        })
+    </script>
+{% endblock %}
+
+

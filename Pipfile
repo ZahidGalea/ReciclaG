@@ -14,6 +14,7 @@ phonenumbers = "*"
 django-phonenumber-field = "*"
 Pillow = "*"
 Babel = "*"
+djangorestframework = "*"
 
 [dev-packages]
 
