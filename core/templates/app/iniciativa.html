@@ -104,13 +104,3 @@
     </div>
 
 {% endblock %}
-
-{% block page_scripts %}
-    <script>
-        $(document).ready(function () {
-            $.get("{% url 'get_puntos_public' %}", function (data) {
-                console.log(data)
-            })
-        })
-    </script>
-{% endblock %}

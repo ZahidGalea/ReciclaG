@@ -1,7 +1,5 @@
 import logging
-
 from rest_framework import status
-
 from core.models import PuntoReciclag
 from .serializers import CompletePuntoSerializer, PublicPuntoSerializer
 from rest_framework.decorators import api_view, permission_classes
