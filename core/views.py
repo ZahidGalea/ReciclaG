@@ -28,6 +28,7 @@ def crearusuario(request):
             new_user = authenticate(username=formulario.cleaned_data['username'],
                                     password=formulario.cleaned_data['password1'],
                                     )
+            token, created = Token.objects.get_or_create(user=new_user)
             lg(request, new_user)
             return redirect(to="dashboard")
         else:
